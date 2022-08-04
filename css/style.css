@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 2rem 6rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    background-color: orangered;
+    color: white;
+    margin: 0 0 2rem;
+}
+
+h2 {
+    font-size: 3rem;
+    background-color: gold;
+    margin: 2rem 0 3.5rem;
+}
+h3 {
+    font-size: 2rem;
+    background-color: cadetblue;
+    margin: 2rem 0 2rem;
+}
+
+h4 {
+    font-size: 2rem;
+    margin: 2rem 0 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+b {
+    font-size: 1.5rem;
+}
+
+i {
+    font-size: 1.5rem;
+}
+
+.page-nav {
+    list-style: none;
+}
+
+.page-nav li {
+    margin: 0.5rem 0 0.5rem;
+}
+
+.page-nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 1rem;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    background-color: black;
+    padding: 0.2rem;
+}
+
+.page-nav a:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.site-nav ul {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.site-nav li {
+    text-decoration: none;
+    list-style: none;
+    margin: 0 1rem;
+}
+
+.site-nav a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+}
+
+.site-nav a:hover {
+    color: darkmagenta;
+}
+
+/* -----Box-model----*/
+.container-boxflex {
+    display: flex;
+    justify-content: center;
+}
+
+.container-boximage {
+    width: 1000px;
+}
+.container-boximage img {
+    width: 100%;
+    margin: 0 0 2rem 0;
+}
+
+/* -----cursor------ */
+
+.cursor-container {
+    display: flex;
+    justify-content: center;
+}

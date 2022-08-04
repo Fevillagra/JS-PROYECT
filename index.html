@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>JS - Basico</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="#">BASICO</a></li>
+                <li><a href="./pages/basico2.html">BASICO2</a></li>
+                <li><a href="./pages/poo.html">OBJETOS</a></li>
+                <li><a href="./pages/metodos.html">METODOS</a></li>
+                <li><a href="./pages/console.html">CONSOLA</a></li>
+                <li><a href="./pages/dom.html">DOM</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#que">¿Qué es JavaScript?</a></li>
+                <li><a href="#uso">Usos</a></li>
+                <li><a href="#enl">Formas de enlazar JS</a></li>
+                <li><a href="#var">Variables</a></li>
+                <li><a href="#dei">Declaración e inicialisación</a></li>
+                <li><a href="#sco">Scope</a></li>
+                <li><a href="#hoi">Hoisting</a></li>
+                <li><a href="alert">alert()</a></li>
+                <li><a href="#prompt">prompt()</a></li>
+                <li><a href="#conf">confirm()</a></li>
+                <li><a href="#int">parseInt()</a></li>
+                <li><a href="#wri">document.write()</a></li>
+                <li><a href="#ope">Operadores</a></li>
+                <li><a href="#conc">Concatenación</a></li>
+                <li><a href="#camel">Camel Case</a></li>
+                <li><a href="#cond">Condicionales</a></li>
+                <li><a href="#com">Comentado</a></li>
+                <li><a href="#cad">Cadenas de texto</a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="que">¿Qué es JavaScript?</h2>
+            <p>
+                JavaScript (abreviado comúnmente JS) es un lenguaje de programación interpretado, 
+                dialecto del estándar ECMAScript. Se define como <b>orientado a objetos, basado en prototipos, 
+                imperativo, débilmente tipado y dinámico.</b><br>
+                Se utiliza principalmente del lado del cliente, implementado como parte de un navegador web 
+                permitiendo mejoras en la interfaz de usuario y páginas web dinámicas y JavaScript del lado del 
+                servidor (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a la web, por ejemplo 
+                en documentos PDF, aplicaciones de escritorio (mayoritariamente widgets) es también significativo.
+            </p>
+            <h3>Orientado a objetos</h3>
+            <p>
+                La Programación Orientada a Objetos (POO, en español; OOP, según sus siglas en inglés) 
+                es un paradigma de programación que parte del concepto de "objetos" como base, los cuales contienen
+                información en forma de campos (a veces también referidos como atributos o propiedades) y 
+                código en forma de métodos.<br>
+                Los objetos son capaces de interactuar y modificar los valores contenidos en sus campos o 
+                atributos (estado) a través de sus métodos (comportamiento).
+            </p>
+            <h3>Basado en prototipos</h3>
+            <p>
+                Programación basada en prototipos, también llamada programación basado en instancias o classless, 
+                es un estilo de programación orientada a objetos en el cual los objetos no son creados mediante la 
+                instanciación de clases sino mediante la clonación de otros objetos o mediante la escritura de código
+                por parte del programador. De esta forma los objetos ya existentes pueden servir de prototipos para 
+                los que el programador necesite crear.
+            </p>
+            <h3>Imperativo</h3>
+            <p>
+                Los lenguajes de programación imperativa son como unas instrucciones paso a paso (cómo) 
+                redactadas para el ordenador. Describen de forma explícita qué pasos deben llevarse a cabo y en 
+                qué secuencia para alcanzar finalmente la solución deseada.
+            </p>
+            <h3>Débilmente tipado</h3>
+            <p>
+                Un lenguaje debilmente tipado es aquel que cuando las variables que usas para desarrollar 
+                tu programa no les tienes que asignar un tipo de variable (como String, entero entre otros).
+            </p>
+            <h3>Dinámico</h3>
+            <p>
+                Un lenguaje de programación es dinámicamente tipado si una variable puede tomar valores
+                de distintos tipos. La mayoría de lenguajes de tipado dinámico son lenguajes interpretados,
+                como Python o Ruby. Un lenguaje que no es dinámicamente tipado se dice que es de tipado estático,
+                o estáticamente tipado.
+            </p>
+        </article>
+        <article>
+            <h2 id="uso">Usos</h2>
+            <p>
+                El uso más común de JavaScript es escribir funciones embebidas o incluidas en páginas HTML y 
+                que interactúan con el Document Object Model (DOM o Modelo de Objetos del Documento) de la página. 
+                Algunos ejemplos sencillos de este uso son:
+            </p>
+            <br>
+            <ul>
+                <li>
+                    <p>
+                        Cargar nuevo contenido para la página o enviar datos al servidor a través de AJAX sin 
+                        necesidad de recargar la página (por ejemplo, una red social puede permitir al usuario 
+                        enviar actualizaciones de estado sin salir de la página).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Animación de los elementos de página, hacerlos desaparecer, cambiar su tamaño, moverlos, etc.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Contenido interactivo, por ejemplo, juegos y reproducción de audio y vídeo.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Validación de los valores de entrada de un formulario web para asegurarse de que 
+                        son aceptables antes de ser enviado al servidor.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Transmisión de información sobre los hábitos de lectura de los usuarios y las 
+                        actividades de navegación a varios sitios web. Las páginas Web con frecuencia 
+                        lo hacen para hacer análisis web, seguimiento de anuncios, la personalización o 
+                        para otros fines.
+                    </p>
+                </li>
+            </ul>
+            <h3>Otros usos</h3>
+            <p>
+                FrameWorks y librerias: Facilitan la creacion de páginas web dinamicas con Js como protagonista 
+                principal de todo el codigo involucrado del lado del FrontEnd.
+            </p>
+            <p>
+                NodeJs: Mediante la utilizacion de Node tambien se puede utilizar para ejecutar codigo js del 
+                lado del BackEnd.
+            </p>
+            <h3>Usos menos comunes</h3>
+            <p>
+                Inteligencia artificial, placas electronicas, mobile apps, deskop apps, etc.
+            </p>
+        </article>
+        <article>
+            <h2 id="enl">Formas de enlazar JS</h2>
+            <h3>En Línea</h3>
+            <p>
+                Mediante el uso de una propiedad dentro de la etiqueta con el nombre del 
+                evento, similar al uso de <b>style</b> en css.
+            </p>
+            <p>
+                Ej:<br>
+                &lt;h1 onclick="alert('Hola Mundo!')"&gt; Titulo &lt;h1&gt;
+            </p>
+            <h3>Como contenido en la etiqueta script</h3>
+            <p>
+                Usualmente se coloca la etiqueta script al final de la etiqueta body con el 
+                objetivo de que cargue primero la estructura de la pagina y así evitar errores.
+                Para que este metodo funcione, la propiedad src no debera estar establecida en 
+                la etiqueta script. Suele incluirse dentro de esta etiqueta el atributo 
+                type="text/javascript" pero no es necesario. 
+            </p>
+            <p>
+                Ej:<br>
+                &lt;script&gt;<br> alert('Hola Mundo!')<br> &lt;script&gt;
+            </p>
+            <h3>Como contenido en un archivo de formato .js</h3>
+            <p>
+                Todo el codigo estara escrito en uno o varios archivos js cuya ruta será 
+                referenciada dentro de la etiqueta script dentro de la propiedad src.
+            </p>
+            <p>
+                Ej:<br>
+                &lt;script src="./js/index.js"&gt; &lt;script&gt;<br>
+                &lt;script src="./js/carrousel.js"&gt; &lt;script&gt;<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="var"></h2>
+            <p>
+                Una variable es un espacio en la memoria que aloja un dato. Dicha variable contiene
+                en su interior un valor.<br>
+                Una variable es una ubicación nombrada para almacenar un valor. De esta manera se puede acceder 
+                a un valor impredecible por medio de un nombre predeterminado.
+            </p>
+            <p>
+                Ej:<br>
+                recipiente = agua; <br>
+                Siendo la primer palabra la variable y la segunda el valor. 
+            </p>
+            <h3>Tipos de valores</h3>
+            <p>
+                Existen diferentes tipos de valores que pueden ser establecidos dentro de una 
+                variable:
+                Son valores primitivos o datos primitivos ya que vienen por defecto en JS.
+            </p>
+            <ul>
+                <li>
+                    <p><b>String(cadena de texto)</b> Cadena de caracteres alfanumericos</p>
+                    <p>Ej: let a = "Cadena de texto"</p>
+                </li>
+                <li>
+                    <p><b>Number(número)</b> Numero entero o decimal.</p>
+                    <p>Ej: let a = 5.5</p>
+                </li>
+                <li>
+                    <p><b>Boolean</b> 0 o 1, traducidos en true o false.</p>
+                    <p>Ej: let a = true</p>
+                    <p>Ej: let b = false</p>
+                </li>
+                <li>
+                    <p>Casos Especiales: <b>undefined, null & nan.</b></p>
+                    <p>
+                        Por lo general, comunican que la variable no está definida
+                        o que hay un error
+                    </p>
+                </li>
+                <li>
+                    <p><b>undefined</b> Es un valor que aparece cuando la variable let no fue inicializada</p>
+                </li>
+                <li>
+                    <p><b>null</b> Es una variable vacía, este valor fue establecido intencionalmente.</p>
+                </li>
+                <li>
+                    <p><b>nan</b> Es un valor que aparece cuando realizo operaciones aritmeticas con variables que alojan 
+                    tipos de valores entre si y que la operación existente entre estos da un resultado inexistente. Por ejemplo
+                    multiplicar un valor number por uno string.
+                    </p>
+                </li>
+            </ul>
+        </article>
+        <article>
+            <h2 id="sco">Scope(alcanze)</h2>
+            <p>
+                El scope de una variable hace referencia al lugar donde va a vivir esta, 
+                o podrá ser accesible, en JavaScript tenemos varias opciones: global, local y bloque.
+            </p>
+        </article>
+        <article>
+            <h2 id="dei">Declaración e inicialisación</h2>
+            <p>
+                Una variable se declara para indicarle al programa a partir de qué lugar 
+                empieza a existir, qué nombre tendrá y qué tipo de datos almacenará. 
+                La asignación de un valor inicial se llama inicialización.
+            </p>
+            <p>
+                Para declarar variables se usan 3 formas:<b> var, let y const. </b><br>
+                Al finalizar una afirmación deberá establecerse un ";" con el proposito de separar el contenido.
+            </p>
+            <p>
+                Ej declaración:<br>
+                <b>let</b><br>
+                let a;<br>
+                a = 5;<br>
+                a = 6;<br>
+                <p>
+                    Con let se puede declarar la variable e inicializarla luego. Tambien se puede reasignar 
+                    el valor. Si no es inicializada, el valor por defecto sera undefined.<br>
+                    Tambien puede ser declarada e inicializada al mismo tiempo:<br>
+                    let a = 5;
+                </p>
+                <br>
+                <p> 
+                    <b>const</b><br>
+                    const b = 5;<br>
+                    Con const de debe declarar la variable e inicializarla al mismo tiempo para que no haya
+                    errores, a diferencia de let, el valor que recibe no puede ser reasignado.
+                </p>
+                <br>
+                <p>
+                    <b>var</b><br>
+                    var c = 3;<br>
+                    c = 2;<br>
+                    var c = 5; <br>
+                    Con var también se puede declarar la variable e inicializarla luego, la diferencia 
+                    con let es que var puede iniciliazarse multiples veces.
+                </p>
+            </p>
+            <p>
+                Actualmente var esta en desuso ya que let, a diferencia de var, límita el <b>scope</b> de 
+                la variable desde donde fue inicializada. Es decir, una variable declarada 
+                con let podrá ser usada en todos los bloques inferiores y en el bloque en que 
+                fue inicializada a diferencia de var que puede ser usada de manera global.
+            </p>
+
+            <div style="display:flex; justify-content:center;">
+                <div style="width: 400px;">
+                    <img src="./images/variables.jpg" width="100%">
+                </div>
+            </div>
+
+            <h3>Crear multiples variables</h3>
+            <p>
+                Se pueden declarar multiples variables al mismo tiempo con la siguiente sintaxis:
+            </p>
+            <br>
+            <p>
+                Ejemplo 1:<br><br>
+                let num1, num2, num3;<br>
+                num1 = 10;<br>
+                num2 = 20;<br>
+                num3 = 30;<br><br><br>
+                Ejemplo 2:<br><br>
+                let num1 = 10, num2 = 20;
+            </p>
+        </article>
+        <article>
+            <h2 id="hoi">Hoisting</h2>
+            <p>
+                El concepto de Hoisting fue pensado como una manera general de referirse a cómo 
+                funcionan los contextos de ejecución en JavaScript (específicamente las fases de creación y ejecución)<br>
+                Ej:<br>
+                let a;<br>
+                alert(a);<br>
+                a = 5;<br>
+                Nota: En este caso cuando se alerte la variable a mostrara el valor undefined ya que la inicialización ocurre 
+                despues, en el caso de funciones, esto no ocurre ya que las funciones pueden ser llamadas antes de ser establecidas.
+                El hoisting se vera en profundidad en sectores posteriores a este.
+            </p>
+        </article>
+        <article>
+            <h2 id="alert">alert()</h2>
+            <p>El metodo alert muestra un dialogo con un mensaje opcional</p>
+        </article>
+        <article>
+            <h2 id="prompt">prompt()</h2>
+            <p>
+                El método prompt() muestra un diálogo con mensaje opcional, 
+                que solicita al usuario que introduzca un texto. Dicho valor puede ser almacenado dentro de una 
+                variable. <br>
+                Ej: <br>
+                let a = prompt('Introduzca una palabra');
+                Nota: Si el usuario hace ingresa cancelar el prompt devolvera null.
+            </p>
+        </article>
+        <article>
+            <h2 id="conf">confirm()</h2>
+            <p>
+                Un cuadro de confirmación se usa a menudo para que el usuario verifique o acepte algo.
+                Cuando aparece un cuadro de confirmación, el usuario debe hacer clic en Aceptar o Cancelar para continuar.
+                Si el usuario hace clic en Aceptar, el cuadro devuelve verdadero . Si el usuario hace clic en Cancelar, 
+                el cuadro devuelve falso.
+            </p>
+            <p>
+                EJ:<br>
+                let resultado = confirm('Deseas irte de la página?');<br>
+                if(resultado) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;alert('Gracias!');<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;alert('Gracias por contar con nosotros.');<br>
+                }
+            </p>
+        </article>
+        <article>
+            <h2 id="par">parseInt()</h2>
+            <p>
+                Convierte (parsea) un argumento de tipo cadena y devuelve un entero de la base especificada.
+            </p>
+        </article>
+        <article>
+            <h2 id="wri">document.write()</h2>
+            <p>
+                Escribe sobre la pagina un texto
+            </p>
+        </article>
+        <article>
+            <h2 id="ope">Operadores</h2>
+            <h3>Operadores de asignación</h3>
+            <p>
+                Un operador de asignación asigna un valor al operando de la izquierda basado en el valor
+                operando de la derecha.
+            </p>
+            <table border="1px">
+                <tr>
+                    <td>Nombre</td>
+                    <td>Operador abreviado</td>
+                    <td>Significado</td>
+                    <td>Explicación</td>
+                </tr>
+                <tr>
+                    <td>Asignacion</td>
+                    <td>x = y</td>
+                    <td>x = y</td>
+                    <td>Cambio de valor</td>
+                </tr>
+                <tr>
+                    <td>Asignación de adición</td>
+                    <td>x += y</td>
+                    <td>x = x + y</td>
+                    <td>Suma</td>
+                </tr>
+                <tr>
+                    <td>Asignación de resta</td>
+                    <td>x -= y</td>
+                    <td>x = x - y</td>
+                    <td>Resta</td>
+                </tr>
+                <tr>
+                    <td>Asignación de multiplicación</td>
+                    <td>x *= y</td>
+                    <td>x = x * y</td>
+                    <td>Multiplicacion</td>
+                </tr>
+                <tr>
+                    <td>Asignación de división</td>
+                    <td>x /= y</td>
+                    <td>x = x / y</td>
+                    <td>División</td>
+                </tr>
+                <tr>
+                    <td>Asignación de resto</td>
+                    <td>x %= y</td>
+                    <td>x = x % y</td>
+                    <td>Divide "x" por "y" y muestra el resto</td>
+                </tr>
+                <tr>
+                    <td>Asignación de exponenciación</td>
+                    <td>x **= y</td>
+                    <td>x = x ** y</td>
+                    <td>Potenciacion</td>
+                </tr>
+                <tr>
+                    <td>Asignación de desplazamiento a la derecha</td>
+                    <td>x >>= y</td>
+                    <td>x = x >> y</td>
+                </tr>
+                <tr>
+                    <td>Asignación de desplazamiento a la izquierda</td>
+                    <td>x <<= y</td>
+                    <td>x = x << y</td>
+                </tr>
+                <tr>
+                    <td>Asignación de desplazamiento a la derecha sin signo</td>
+                    <td>x >>>= y</td>
+                    <td>x = x >>> y</td>
+                </tr>
+                <tr>
+                    <td>Asignación AND</td>
+                    <td>x &= y</td>
+                    <td>x = x & y</td>
+                </tr>
+                <tr>
+                    <td>Asignación XOR</td>
+                    <td>x ^= y</td>
+                    <td>x = x ^ y</td>
+                </tr>
+                <tr>
+                    <td>Asignación OR</td>
+                    <td>x |= y</td>
+                    <td>x = x | y</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p>
+                Nota: En el siguiente ejemplo se muetra la manera correcta de guardar el
+                resultado en una variable: <br>
+                let a = 5
+                a++
+                resultado = a 
+                Se hace en este orden ya que si se guarda a++ en resultado no daría como 
+                resultado 6.
+            </p>
+            <h3>Operadores arítmeticos</h3>
+            <p>
+                Los operadores arítmeticos toman valores númericos(ya sean literales o variables) como sus 
+                operandos y retornan un valor numerico único.
+            </p>
+            <p>
+                Suma (+). Suma dos números: 3 + 2 = 5 . Si en lugar de números se suman cadenas, como por ejemplo 
+                "A" + "B" = "AB" se produce una concatenación. Si alguno de los elementos a concatenar no es una 
+                cadena de texto, queda convertido a cadena: "AB" + 123 = "AB123" .
+            </p>
+            <p>
+                Resta (-). Halla la diferencia entre dos números. Ejemplo A: 3-2 = 1 . Ejemplo B: (-1)-(-2) = 1 .
+            </p>
+            <p>
+                Incrementos y decrementos (++   --). Incrementa o decrementa el valor de una variable numérica en una unidad. No puede aplicarse a un literal. Pueden darse dos casos:
+                <br>
+                var A, B; <br>
+                B = 2; <br>
+                    A =  ++B;  <br>
+                    A =  B++;  <br>
+                nota: El segundo caso es más común.
+            </p>
+            <h3>Operadores de comparación</h3>
+            <p>
+                Los operadores de comparación comparan dos expresiones y devuelven  un valor boolean que representa
+                la relación de sus valores.
+            </p>
+            <br>
+            <div style="display:flex; justify-content:center;">
+                <div style="border: 10px solid black; width: 400px;">
+                    <img src="./images/Operadores.jpg" width="100%">
+                </div>
+            </div>
+            <p>
+                Nota: Con los operadores iguales en el caso de el valor 1 y "1" sera true no diferencia el tipo de dato
+                , con los operadores estrictamente iguales === será false que si diferencia el tipo de dato.
+            </p>
+            <h3>Operadores lógicos</h3>
+            <p>
+                Los operadores lógicos devuleven un resultado a partir de que se cumpla (o no) una condición, su 
+                resultado es booleano, y sus operandos son valores lógicos o asimilables a ellos.
+            </p>
+            <br>
+            <div style="display:flex; justify-content:center;">
+                <div style="border: 10px solid black; width: 1000px;">
+                    <img src="./images/OperadoresLogicos.jpg" width="100%">
+                </div>
+            </div>
+            <p>
+                Nota: Primero resolvera los operadores que den como resultado un boolean y luego los operadores 
+                logicos, siempre priorizando los parentesis en ambos casos y de izquierda a derecha.
+            </p>
+        </article>
+        <article>
+            <h2 id="conc">Concatenación</h2>
+            <p>
+                La concatenación es la unión de strings. Para unirlas basta con sumar dos o mas 
+                variables que alojen valores string. <br>
+                
+            </p>
+            <p>
+                Ej 1:<br>
+                <b>
+                let a = 'Hola';<br>
+                let b = 'Mundo!';<br>
+                let c = a + b;<br>
+                console.log(c);<br>
+                OUTPUT:<br>
+                'Hola Mundo!'<br>
+                Ej 2:<br>
+                let a = 1; <br>
+                let b = 2; <br>
+                let c = '' + a + b;<br>
+                console.log(c)<br>
+                OUTPUT:<br>
+                '12'
+                Nota: Si JS detecta algún string automaticamente todos los valores serán 
+                considerados strins.
+                </b>
+            </p>
+            <h3>Función concat()</h3>
+            <p>
+                El método concat() se usa para unir dos o más arrays. 
+                Este método no cambia los arrays existentes, sino que devuelve un nuevo array.
+            </p>
+            <p>
+                Ej:<br>
+                let a = 13;<br>
+                let b = 25;<br>
+                let c = a.concat(b);<br>
+                console.log(c);<br>
+                OUTPUT:<br>
+                '1325'
+            </p>
+            <h3>Con llaves y backticks</h3>
+            <p>
+                Ej:<br>
+                let a = 'Jhon smith';
+                let b = `Bienvendio ${a} a <br>
+                tu home`;<br>
+            </p>
+            <p>
+                Con backticks se pueden usar saltos de línea dentro del código y ademas emplear
+                llaves ${} para incluir las variables dentro de los backticks. Se pueden incluir
+                comillas adentro de los backticks. También se pueden agregar etiquetas. 
+            </p>
+            <p>Agregado de etiquetas con backticks.</p>
+            <p>
+                EJ: <br>
+                let a = `&lt;div&gt; <br>
+                &lt;h1&gt; Hola Mundo! &lt;/h1&gt;<br>
+                &lt;h2&gt; Hola Mundo! &lt;/h1&gt;<br>
+                &lt;/div&gt;`;<br>
+                document.write(a);
+                OUTPUT: (Será las etiquetas que son el valor de a)
+            
+            </p>
+            <h3>Escape de comillas simples y dobles.</h3>
+            <p>
+                Es la utilización de comillas simples o dobles dentro de otras. Si se usan 
+                comillas simples en un string solo podrán ser usadas comillas dobles dentro 
+                de las simples y biceversa.
+            </p>
+            <p>
+                Ej:<br>
+                let a = 'Hola "Mundo!"';
+                console.log(a);
+                OUTPUT:
+                'Hola "Mundo!"'.
+            </p>
+        </article>
+        <aricle>
+            <h2>Camel Case</h2>
+            <p>
+                Camel case (estilizado como camelCase) o letra de caja camello es el nombre informal que se da en 
+                inglés a un estilo de escritura que se aplica a frases o palabras compuestas. El nombre se debe
+                a que las mayúsculas a lo largo de una palabra en camelCase se asemejan a las jorobas de un camello. 
+                El nombre camelCase se podría traducir como Mayúsculas/Minúsculas Camello.
+            </p>
+            <p>
+                Dentro de JavaScript es una buena práctica empezar la primer palabra que compone el nombre entero de una 
+                variable, o función con minúscula y en caso de que este compuesta por más de una palabra se usara 
+                maýuscula. Ej: <b>let nuevoProducto = '1';</b>. También puede observarse la implementación de 
+                camelCase dentro de JavaScript nativo. Ej: 'let a = document.getElementById(navBar)'.
+            </p>
+        </aricle>
+        <article>
+            <h2 id="cond">Condicionales</h2>
+            <h3>Definiciendo Bloque</h3>
+            <p>
+                Los bloques en Javascript se delimitan mediante llaves, una de apertura ‘{‘, y otra de cierre ‘}’.
+            </p>
+            <h3>if ...else</h3>
+            <p>
+                Ejecuta una sentencia si una condición específicada es evaluada como verdadera. 
+                Si la condición es evaluada como falsa, otra sentencia puede ser ejecutada.<br>
+                Estructura:<br>
+                if(condicion) {<br>
+                    alert('Es true');<br>
+                } else {<br>
+                    alert('Es false');<br>
+                }<br>
+                En la estructura anterior, si la condición es verdadera se ejecuta el primer alert, en caso
+                contrario se ejecuta el segundo alert. No es necesario definir el else. También puede especificarse 
+                ifs adicionales.
+            </p>
+            <p>
+                Ej 1: <br>
+                if(numero > 10) { <br>
+                    alert('Es mayor a 10'); <br>
+                } else if(numero > 5) { <br>
+                    alert('Es mayor a 5'); <br>
+                } else { <br>
+                    alert('No es mayor a 5'); <br>
+                } <br>
+            </p>
+            <p>
+                Basta con que una de las dos primeras sea verdadera para que el resto o la última respectivamente 
+                no se ejecute.
+            </p>
+        </article>
+        <article>
+            <h2 id="com">Comentado</h2>
+            <p>
+                Para comentar dentro de Js se usan los simbolos // en caso de una línea, en caso de necesitar
+                comentar más que una línea se usa /*  */ .
+            </p>
+        </article>
+        <article>
+            <h2 id="cad">Cadenas de texto</h2>
+            <p>
+                Dentro de las cadenas de texto(aquellos valores que van entre comillas) se puede utilizar el simbolo 
+                "\" para insertar caracteres especiales.
+            </p>
+            <p>Codigos/salidas:</p>
+            <ul>
+                <li>
+                    <p>\' Comilla simple</p>
+                </li>
+                <li>
+                    <p>\" Comillas dobles</p>
+                </li>
+                <li>
+                    <p>\\ Barra invertida</p>
+                </li>
+                <li>
+                    <p>\n nueva línea</p>
+                </li>
+                <li>
+                    <p>\r retorno de carro</p>
+                </li>
+                <li>
+                    <p>\t tabulacion</p>
+                </li>
+                <li>
+                    <p>\b retroceso</p>
+                </li>
+                <li>
+                    <p>\f salto de pagina</p>
+                </li>
+            </ul>
+        </article>
+    </section>
+   <!-- <script src="./js/Caso1.js"></script> -->
+</body>
+</html>

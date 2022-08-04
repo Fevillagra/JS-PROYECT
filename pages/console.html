@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>JS - Basico</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="./poo.html">OBJETOS</a></li>
+                <li><a href="./metodos.html">METODOS</a></li>
+                <li><a href="#">CONSOLA</a></li>
+                <li><a href="./dom.html">DOM</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#consola">Consola</a></li>
+                <p>Metodos de consola. FUNCIONES DE REGISTRO</p>
+                <li><a href="#console">console.log()</a></li>
+                <li><a href="#assert">console.assert()</a></li>
+                <li><a href="#clear">clear()</a></li>
+                <li><a href="#error">console.error()</a></li>
+                <li><a href="#info">console.info()</a></li>
+                <li><a href="#table">console.table()</a></li>
+                <li><a href="#warn">console.warn()</a></li>
+                <p>Funciones de conteo.</p>
+                <li><a href="#count">console.count()</a></li>
+                <p>Funciones de agrupación</p>
+                <li><a href="#group">console.group()</a></li>
+                <p>Funciones de conteo</p>
+                <li><a href="#time">console.time()</a></li>
+                Cambiar estilos en console
+                <li><a href="#estilos">Estilos</a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="consola">Consola</h2>
+            <p>
+                La consola JavaScript de nuestro navegador sirve para ver los logs que lanzamos 
+                en nuestros scripts y como intérprete JavaScript desde el que lanzar pequeños 
+                comandos y ver sus efectos en la web.
+            </p>
+        </article>
+        <article>
+            <h2 id="console">console.log()</h2>
+            <p>
+                Muestra un mensaje en la consola web (o del intérprete JavaScript).
+            </p>
+        </article>
+        <article>
+            <h2 id="assert">console.assert()</h2>
+            <p>
+                NO ESTANDAR. Aparece un mensaje de error en la consola si la afirmación es falsa, si la afirmación
+                es verdadera, no aparecera nada.
+            </p>
+            <p>
+                INPUT:<br>
+                console.assert(4 > 5);<br>
+                OUTOUT:<br>
+                Assertion failed console.assert
+            </p>
+        </article>
+        <article>
+            <h2 id="clear">cosole.clear() o clear()</h2>
+            <p>
+                Limpía la consola.
+            </p>
+        </article>
+        <article>
+            <h2 id="error">console.error()</h2>
+            <p>
+                Muestra un mensaje de error en la consola.
+            </p>
+            <p>
+                INPUT:<br>
+                console.error('Error!!!');<br>
+                OUTPUT:<br>
+                Error!!!<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="info">console.info()</h2>
+            <p>
+                Emite un mensaje informativo a la Consola Web. En Firefox y Chrome, se muestra un pequeño 
+                ícono "i" junto a estos elementos en el registro de la Consola Web.
+            </p>
+            <p>
+                INPUT:<br>
+                console.info('Éxito!');<br>
+                OUTPUT:<br>
+                'Éxito!'
+            </p>
+        </article>
+        <article>
+            <h2 id="table">console.table()</h2>
+            <p>
+                Muestra datos tabulares como una tabla.<br>
+                Esta función toma un argumento obligatorio: data, que debe ser un array o un objeto, y un 
+                parámetro adicional: columns.
+            </p>
+            <p>
+                INPUT:<br>
+                console.table([1,2,3,4,5]);<br>
+                OUTPUT: (Será una tabla con el index y su respectivo valor)
+            </p>
+        </article>
+        <article>
+            <h2 id="warn">console.warn()</h2>
+            <p>
+                Imprime un mensaje de advertencia en la Consola Web.
+            </p>
+            <p>
+                INPUT:<br>
+                console.warn('Cuidado');<br>
+                OUTPUT:<br>
+                Cuidado<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="dir">console.dir()</h2>
+            <p>
+                NO ESTANDAR. El método dir() de Console despliega una lista interactiva de las propiedades del objeto 
+                JavaScript especificado. El resultado es presentado como un listado jerárquico con triángulos 
+                de despliegue que te dejan ver los contenidos de los objetos hijos.
+            </p>
+        </article>
+        <article>
+            <h2 id="count">console.count()</h2>
+            <p>
+                Registra el número de veces que se llama a count(). Esta función toma como argumento
+                opcional una etiqueta.
+            </p>
+            <p>
+                INPUT:<br>
+                console.count();<br>
+                console.count();<br>
+                console.countReset();<br>
+                console.count();<br>
+                OUTPUT:<br>
+                default: 1<br>
+                default: 2<br>
+                default: 1<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="group">console.group();</h2>
+            <p>
+                El console.group()método crea un nuevo grupo en línea en el registro de la consola web,
+                lo que hace que los mensajes de la consola subsiguientes tengan una sangría de un nivel adicional,
+                hasta console.groupEnd()que se llame.
+            </p>
+            <p>
+                Se desplegara un area en el cual se puede escribir comandos que serán registrados dentro de 
+                console.group. El nombre del grupo es el parámetro que recibe. Para eliminar el grupo: 
+                <b>console.groupEnd();</b>
+            </p>
+            <p>
+                <b>console.groupCollapsed();</b> Como group, pero estará cerrado. 
+            </p>
+        </article>
+        <article>
+            <h2 id="time">console.time()</h2>
+            <p>
+                El console.time()método inicia un temporizador que puede usar para rastrear cuánto tiempo 
+                lleva una operación. Le da a cada temporizador un nombre único y puede tener hasta 10,000 
+                temporizadores ejecutándose en una página determinada. Cuando llame <b>console.timeEnd()</b>con el
+                mismo nombre, el navegador mostrará el tiempo, en milisegundos, transcurrido desde que se inició 
+                el temporizador. <b>console.timeLog()</b> Mostrará el tiempo transcurrio desde la ejecución de 
+                console.time, pero no lo parará.
+            </p>
+        </article>
+        <article>
+            <h2 id="estilos">Estilos en consola</h2>
+            <p>
+                Para cambiar estilos será necesario dos parámetros, el primero será el mensaje que quiero imprimir 
+                en consola con el sufijo %c el segundo los estilos en lenguaje css.
+            </p>
+            <p>
+                INPUT:<br>
+                console.log('%chola','color:red;brackground:black;')
+            </p>
+        </article>
+    </section>
+    <script src="../js/Caso52.js"></script>
+</body>
+</html>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>CSS - Metodos</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="./poo.html">OBJETOS</a></li>
+                <li><a href="#">METODOS</a></li>
+                <li><a href="./console.html">CONSOLA</a></li>
+                <li><a href="./dom.html">DOM</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#con">Concepto</a></li>
+                <p>Valores booleanos, e indice.</p>
+                <li><a href="#concat">.concat()</a></li>
+                <li><a href="#ns">Crear cadena de texto de forma alternativa. new String</a></li>
+                <li><a href="#sw">.startsWith()</a></li>
+                <li><a href="#ew">.endsWith()</a></li>
+                <li><a href="#inc">.includes()</a></li>
+                <li><a href="#ind">.indexOf()</a></li>
+                <li><a href="#indices">Indices</a></li>
+                <li><a href="#liof">.lastIndexOf()</a></li>
+                <p>Relleno de cadenas</p>
+                <li><a href="#ps">.padStart()</a></li>
+                <li><a href="pe">.padEnd()</a></li>
+                <li><a href="rep">.repeat()</a></li>
+                <p>Modificaciones de cadena y transformaciones</p>
+                <li><a href="#spl">.split()</a></li>
+                <li><a href="#subs">.substring()</a></li>
+                <li><a href="#tlc">.toLowerCase()</a></li>
+                <li><a href="#tuc">.toUpperCase()</a></li>
+                <li><a href="tos">.toString()</a></li>
+                <li><a href="#len">.length</a></li>
+                <li><a href="#tri">.trim()</a></li>
+                <li><a href="#trims">.trimStart()</a></li>
+                <li><a href="#trime">.trimEnd()</a></li>
+                <p>Metodos de arrays transformadores</p>
+                <li><a href="#shif">.shift()</a></li>
+                <li><a href="#pop">.pop()</a></li>
+                <li><a href="#unshif">.unshift()</a></li>
+                <li><a href="#push">.push()</a></li>
+                <li><a href="#rev">.reverse()</a></li>
+                <li><a href="#sort">.sort()</a></li>
+                <li><a href="#spli">.splice()</a></li>
+                <p>Metodos de arrays accesores</p>
+                <li><a href="#join">.join()</a></li>
+                <li><a href="#sli">.slice()</a></li>
+                <li><a href="#otros">Otros</a></li>
+                <p>De repetición</p>
+                <li><a href="#filt">.filter()</a></li>
+                <li><a href="#fore">.forEach()</a></li>
+                <p>Objeto Math</p>
+                <li><a href="#sqrt">Math.sqrt()</a></li>
+                <li><a href="#cbrt">Math.cbrt()</a></li>
+                <li><a href="#min">Math.min()</a></li>
+                <li><a href="#max">Math.max()</a></li>
+                <li><a href="#random">Math.random()</a></li>
+                <li><a href="#round">Math.round()</a></li>
+                <li><a href="#floor">Math.floor()</a></li>
+                <li><a href="#ceil">Math.ceil()</a></li>
+                <li><a href="#trunc">Math.trunc()</a></li>
+                <p>Propiedades Matematicas</p>
+                <li><a href="#pi">Propiedades</a></li>
+                <p>Otros</p>
+                <li><a href="#seti">setInterval()</a></li>
+                <p>Objeto Date()</p>
+                <li><a href="#date">Date()</a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="con">Concepto</h2>
+            <p>
+                Los metodos de cadena son aquellos que vienen pre-definidos en js y por lo tanto pueden emplearse 
+                en cualquier variable que tenga como valor un texto.
+            </p>
+        </article>
+        <article>
+            <h2 id="concat">.concat()</h2>
+            <p>Junta 2 o más cadenas y retorna 1.</p>
+            <p>
+                INPUT:<br>
+                let cadena = "hola";<br>
+                let resultado = cadena.concat("mundo")<br>
+                console.log(resultado)<br>
+                OUTPUT:<br>
+                'holamundo'
+            </p>
+        </article>
+        <article>
+            <h2 id="ns">new String()</h2>
+            <p>Manera alternativa de crear una cadena string. Se crea un objeto que aloja el string</p>
+            <p>
+                INPUT:<br>
+                let a = new String('Cadena de prueba');<br>
+                console.log(a)<br>
+                OUTPUT:<br>
+                String {'Cadena de prueba'}
+            </p>
+            <p>
+                INPUT:<br>
+                let a = new Number(3245);<br>
+                console.log(a)<br>
+                OUTPUT:<br>
+                Number {3245}
+            </p>
+            <p>
+                INPUT:<br>
+                let a = new Boolean(true);<br>
+                console.log(a)<br>
+                OUTPUT:<br>
+                Boolean {true}
+            </p>
+            <p>Tambien se pueden crear nuevos arrays con new Array</p>
+            <p>
+                INPUT:<br>
+                let a = new Array('1','2','3');
+                console.log(a);
+                OUTPUT:<br>
+                (3) ['1', '2', '3']<br>
+                NOTA: Tambien se puede declarar la cantidad de elementos que tendrá
+                especificando la cantidad así <b>new Array(3);</b>
+            </p>
+        </article>
+        <article>
+            <h2 id="sw">.startsWith()</h2>
+            <p>
+                Si una cadena comienza con los carácteres de otra cadena devuelve true, sino false.
+                Es decir, la primer palabra de la cadena debe coincidir con la primer palabra de la otra para 
+                retornar true.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "hola";<br>
+                let resultado = cadena.startsWith("hola Mundo")<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                true
+            </p>
+        </article>
+        <article>
+            <h2 id="ew">.endssWith()</h2>
+            <p>
+                Si una cadena termina con los carácteres de otra cadena devuelve true, sino false.
+                Es decir, la ultima palabra de la cadena debe coincidir con la ultima palabra de la otra para 
+                retornar true.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "Mundo";<br>
+                let resultado = cadena.endsWith("hola Mundo")<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                true
+            </p>
+        </article>
+        <article>
+            <h2 id="inc">.includes()</h2>
+            <p>
+                Si una cadena puede encontrarse dentro de otra cadena devuelve true, sino false.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "Hola Mundo";<br>
+                let resultado = cadena.includes("Mundo")<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                true
+            </p>
+        </article>
+        <article>
+            <h2 id="ind">.indexOf()</h2>
+            <p>
+                Devuelve el índice del primer caracter de la cadena, si no existe devuelve -1. En caso de un array 
+                devolvera el indice de el valor, y en caso de un array devolvera el indice de la primer letra.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "Hola Mundo";<br>
+                let resultado = cadena.indexOf("Mundo")<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                6<br>
+                Nota: Devuelve 6 porque "M" es la sexta letra dentro de la primera cadena.
+            </p>
+        </article>
+        <article>
+            <h2 id="indices">Indices</h2>
+            <p>
+                Los indices devueltos de un string corresponderan al order de los caracteres, es decir. Si no es 
+                un array, el indice devolvera la letra correspondiente al "puesto"(el indice).
+            </p>
+            <p>
+                Ej: <br>
+                INPUT:
+                let a = 'Hola'; <br>
+                console.log(a[2]); <br>
+                OUTPUT: <br>
+                "l"
+            </p>
+        </article>
+        <article>
+            <h2 id="liof">.lastIndexOf()</h2>
+            <p>
+                Devuelve el último indice del primer caracter de la cadena, si no existe devuelve -1. Es decir,
+                si hay muchas palabras, o multiples caracteres iguales, devolvera el indice del último caracter 
+                que corresponda.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "Mundo Mundo";<br>
+                let resultado = cadena.lastIndexOf("Mundo")<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                7<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="ps">.padStart()</h2>
+            <p>
+                El método padStart() rellena la cadena actual con una cadena dada (repetida eventualmente) 
+                de modo que la cadena resultante alcance una longitud dada. El relleno es aplicado desde el
+                inicio (izquierda) de la cadena actual. Rellena el espacio con los caracteres deseados.<br>
+                Nota: Este metodo todavía no ha sido implementado.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "Hola Mundo";<br>
+                let resultado = cadena.padStart(14,'xy')<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'xyxyHola Mundo'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="pe">.padEnd()</h2>
+            <p>
+                El método padStart() rellena la cadena actual con una cadena dada (repetida eventualmente) 
+                de modo que la cadena resultante alcance una longitud dada. El relleno es aplicado desde el
+                final (derecha) de la cadena actual. Rellena el espacio con los caracteres deseados.<br>
+                Nota: Este metodo todavía no ha sido implementado.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "Hola Mundo";<br>
+                let resultado = cadena.padStart(14,'xy')<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'Hola Mundoxyxy'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="rep">.repeat()</h2>
+            <p>
+                Devuelve la misma cadena de texto pere repetida la cantidad de veces elegida.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "123 ";<br>
+                let resultado = cadena.repeat(2)<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                '123 123 '<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="spl">.split()</h2>
+            <p>Divide la cadena como le pidamos. Devuelve un array.</p>
+            <p>
+                INPUT:<br>
+                let cadena = "Hola,Mundo";<br>
+                let resultado = cadena.split(',')<br>
+                console.log(resultado[0]);<br>
+                OUTPUT:<br>
+                'Hola'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="subs">.substring()</h2>
+            <p>
+                El substring() método devuelve un subconjunto de un objeto String. Recibe por parámetro dos números
+                el primero será el indice del carácter donde empieza el "recorte" y el segundo el indice donde termina
+                (este no será incluido).
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = "Hola Mundo";<br>
+                let resultado = cadena.substring(0,2)<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'Ho'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="tlc">.toLowerCase()</h2>
+            <p>Convierte una cadena a minúscula.</p>
+            <p>
+                INPUT:<br>
+                let cadena = "Hola Mundo";<br>
+                let resultado = cadena.toLowerCase();<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'hola mundo'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="tuc">.toUpperCase()</h2>
+            <p>Convierte una cadena a mayúscula.</p>
+            <p>
+                INPUT:<br>
+                let cadena = "Hola Mundo";<br>
+                let resultado = cadena.toUpperCase();<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'HOLA MUNDO'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="tos">.toString()</h2>
+            <p>Devuelve una cadena que representa al objeto. Es decir, cambia el valor a una cadena de texto.</p>
+            <p>
+                INPUT:<br>
+                let cadena = true;<br>
+                let resultado = cadena.toString();<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'true'<br>
+                Nota: También podrá convertir arrays a string seperados por coma.
+            </p>
+        </article>
+        <article>
+            <h2 id="len">.length</h2>
+            <p>
+                Devuelve la longitud de una cadena de texto. Esta propiedad devuelve el número de caracteres 
+                de una cadena. UTF-16, el formato usado por JavaScript, usa 16-bit para representar los caracteres
+                más comunes, pero necesita usar dos caracteres para otros menos usados, así que es posible que 
+                el valor devuelto por length no corresponda al número de caracteres de la cadena.
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = 'hola';<br>
+                let resultado = cadena.length;<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                4<br>
+                Nota: También podrá convertir arrays a string seperados por coma.
+            </p>
+        </article>
+        <article>
+            <h2 id="tri">.trim()</h2>
+            <p>
+                El método trim( ) elimina los espacios en blanco en ambos extremos del string. 
+                Los espacios en blanco en este contexto, son todos los caracteres sin contenido 
+                (espacio, tabulación, etc.) y todos los caracteres de nuevas lineas (LF,CR,etc.).
+            </p>
+            <p>
+                INPUT:<br>
+                let cadena = '&nbsp;&nbsp;&nbsp;&nbsp;hola&nbsp;&nbsp;&nbsp;&nbsp;';<br>
+                let resultado = cadena.trim();<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'hola'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="trims">.trimStart()</h2>
+            <p>Elimina los espacios del principio</p>
+            <p>
+                INPUT:<br>
+                let cadena = '&nbsp;&nbsp;&nbsp;&nbsp;hola&nbsp;&nbsp;&nbsp;&nbsp;';<br>
+                let resultado = cadena.trimStart();<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'hola&nbsp;&nbsp;&nbsp;&nbsp;'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="trime">.trimEnd()</h2>
+            <p>Elimina los espacios del final</p>
+            <p>
+                INPUT:<br>
+                let cadena = '&nbsp;&nbsp;&nbsp;&nbsp;hola&nbsp;&nbsp;&nbsp;&nbsp;';<br>
+                let resultado = cadena.trimEnd();<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                '&nbsp;&nbsp;&nbsp;&nbsp;hola'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="vof">.valueOf()</h2>
+            <p>El método valueOf() retorna el valor primitivo del objeto especificado.</p>
+            <p>
+                INPUT:<br>
+                let cadena = new String('Texto');<br>
+                let resultado = cadena.valueOf();<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                'Texto'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="shif">.shift()</h2>
+            <p>
+                Elimina el primer elemento de un array y lo devuelve. METODO TRANSFORMADOR. Si imprimo sobre una nueva 
+                variable devolvera el elemento borrado.
+            </p>
+            <p>
+                INPUT:<br>
+                let letras = ['a', 'b', 'c'];<br>
+                let resultado = letras.shift();<br>
+                console.log(letras);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                (2)['b', 'c']<br>
+                'a'
+            </p>
+        </article>
+        <article>
+            <h2 id="pop">.pop()</h2>
+            <p>
+                Elimina el último elemento de un array y lo devuelve. METODO TRANSFORMADOR. Si imprimo sobre una nueva 
+                variable devolvera el elemento borrado.
+            </p>
+            <p>
+                INPUT:<br>
+                let letras = ['a', 'b', 'c'];<br>
+                let resultado = letras.pop();<br>
+                console.log(letras);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                (2)['a', 'b']<br>
+                'c'
+            </p>
+        </article>
+        <article>
+            <h2 id="unshif">.unshift()</h2>
+            <p>
+                Agrega un elemento al principio del array y lo devuelve. METODO TRANSFORMADOR. Si imprimo sobre una nueva 
+                variable devolvera la longitud del array.
+            </p>
+            <p>
+                INPUT:<br>
+                let letras = ['a', 'b', 'c'];<br>
+                let resultado = letras.unshift(0);<br>
+                console.log(letras);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                (4)[0, 'a', b', 'c']<br>
+                4
+            </p>
+        </article>
+        <article>
+            <h2 id="push">.push()</h2>
+            <p>
+                Agrega un elemento al final del array y lo devuelve. METODO TRANSFORMADOR. Si imprimo sobre una nueva 
+                variable devolvera la longitud del array.
+            </p>
+            <p>
+                INPUT:<br>
+                let letras = ['a', 'b', 'c'];<br>
+                let resultado = letras.unshift(0);<br>
+                console.log(letras);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                (4)['a', b', 'c', 0]<br>
+                4
+            </p>
+        </article>
+        <article>
+            <h2 id="rev">.reverse()</h2>
+            <p>Invierte el orden los elementos de un array</p>
+            <p>
+                INPUT:<br>
+                let nums = [1, 2, 3];<br>
+                nums.reverse();<br>
+                console.log(nums);<br>
+                OUTPUT:<br>
+                (3)[3, 2, 1]<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="sort">.sort()</h2>
+            <p>
+                El método sort() ordena los elementos de un arreglo (array) localmente y devuelve el arreglo ordenado.
+                Es decir lo ordena alfabeticamente y de menor a mayor. METODO MODIFICADOR.
+            </p>
+            <p>
+                INPUT:<br>
+                let nums = [7, 1, 5];<br>
+                nums.sort();<br>
+                console.log(nums);<br>
+                OUTPUT:<br>
+                (3)[1, 5, 7]<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="spli">.splice()</h2>
+            <p>
+                El método splice() cambia el contenido de un array eliminando elementos existentes
+                y/o agregando nuevos elementos. El primer parametro que contendra splice será el del 
+                indice en el cual comenzara el corte y el segundo la cantidad de elementos que eliminara hacia 
+                la derecha empezando a contar desde el elemento del indice eleegido. El tercero correspondera al 
+                elemento que quiera agregar.
+            </p>
+            <p>
+                INPUT:<br>
+                let nums = ['a', 'b', 'c'];<br>
+                nums.splice(1,2,'Hola Mundo');<br>
+                console.log(nums);<br>
+                OUTPUT:<br>
+                (2)['a', 'Hola Mundo']<br>
+                Nota: Este metodo puede ser empleado para agregar elementos especificando como argumento 0,0 
+                siendo el primero argumento el indice que le será asignado al elemento o -1 para que el elemento 
+                sea colocado al final.
+            </p>
+        </article>
+        <article>
+            <h2 id="join">.join()</h2>
+            <p>
+                El método join() une todos los elementos de una matriz (o un objeto similar a una matriz) 
+                en una cadena y devuelve esta cadena. METODO ACCESORIO. Transforma el array en cadena de texto
+                permitiendonos especificar el divisor entre valores que queramos.
+            </p>
+            <p>
+                INPUT:<br>
+                let letras = ['a', 'b', 'c'];<br>
+                let resultado = letras.join('-');<br>
+                console.log(nums);<br>
+                OUTPUT:<br>
+                'a-b-c'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="sli">.slice()</h2>
+            <p>Devuelve una parte del array teniendo por parametro un inicio y un fin(fin no incluido)</p>
+            <p>
+                INPUT:<br>
+                let letras = ['a', 'b', 'c'];<br>
+                let resultado = letras.slice(0,2);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                (2) ['a', 'b']<br>
+                Nota: para copiar el array completo, deberé introducir como argumento -1 en el segundo parametro.
+            </p>
+        </article>
+        <article>
+            <h2 id="otros">Otros</h2>
+            <p>.toString() Convierte el array en un string.</p>
+            <p>.indexOf() Muestra el primer indice que coincida con la busqueda. Busca la cadena de texto entera</p>
+            <p>.lastIndexOf() Muestra el ultimo indice que coincida con la busqueda. Busca la cadena de texto entera</p>
+            <p>.includes() Devuelve true si existe tal inclusion en el array.</p>
+            <p>.length() Devuelve cuantos elementos tiene el array. En caso de strings devolvera la cantidad de los carácteres</p>
+        </article>
+        <article>
+            <h2 id="filt">.filter()</h2>
+            <p>Crea un nuevo array con todos los elementos que cumplan con la condición.</p>
+            <p>
+                La condición debe arrojar un valor boolean que, en caso de ser true, devolvera dentro del array 
+                el valor que cumpla con la condición dentro de la iteración.
+            </p>
+            <p>
+                INPUT:<br>
+                let letras = ['a', 'b', 'c'];<br>
+                let resultado = letras.filter(letra => console.log(letra));<br>
+                let resultado2 = letras.filter(letra => letra == 'c');<br>
+                console.log(resultado2);<br>
+                OUTPUT:<br>
+                'a'<br>
+                'b'<br>
+                'c'<br>
+                'c'<br>
+                
+                Nota: En vez de una función flecha, el argumento que recibe filter puede ser una función común.
+                Nota 2: Ahora resultado tiene el mismo valor que letras.
+                Nota 3: Ahora resultado2 tiene solo 'c', que es el único valor del array que cumple con la 
+                codición.
+            </p>
+        </article>
+        <article>
+            <h2 id="fore">.forEach()</h2>
+            <p>El método forEach() ejecuta la función indicada una vez por cada elemento del array.</p>
+            <p>
+                INPUT:<br>
+                const array1 = ['a', 'b', 'c'];<br>
+                array1.forEach(element => console.log(element));<br>
+                OUTPUT:<br>
+                'a'<br>
+                'b'<br>
+                'c'<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="sqrt">Math.sqrt()</h2>
+            <p>Devuelve el resultado de la raiz cuadrada.</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.sqrt(25);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                5
+            </p>
+        </article>
+        <article>
+            <h2 id="cbrt">Math.cbrt()</h2>
+            <p>Devuelve el resultado de la raiz cubica.</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.cbrt(8);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                2
+            </p>
+        </article>
+        <article>
+            <h2 id="min">Math.min()</h2>
+            <p>Devuelve el número más pequeño entre 2 o más números</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.min(3,5,100,-5);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                -5
+            </p>
+        </article>
+        <article>
+            <h2 id="max">Math.max()</h2>
+            <p>Devuelve el número más grande entre 2 o más números</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.min(3,5,100,-5);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                100
+            </p>
+        </article>
+        <article>
+            <h2 id="random">Math.random</h2>
+            <p>Devuelve un número aleatorio entre 0 y 1</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.random();<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                0.493871729947162
+            </p>
+        </article>
+        <article>
+            <h2 id="round">Math.round()</h2>
+            <p>Devuelve un número entero redondeando al más cercano.</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.round(1.9);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                2
+            </p>
+        </article>
+        <article>
+            <h2 id="floor">Math.floor()</h2>
+            <p>Devuelve un número entero redondeando hacía el número más chico</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.floor(1.9);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                1
+            </p>
+        </article>
+        <article>
+            <h2 id="ceil">Math.ceil()</h2>
+            <p>Devuelve un número entero redondeando hacía el número más grande</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.ceil(1.9);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                2
+            </p>
+        </article>
+        <article>
+            <h2 id="trunc">Math.trunc()</h2>
+            <p>Elimina digítos extra</p>
+            <p>
+                INPUT:<br>
+                let resultado = Math.trunc(1.9);<br>
+                console.log(resultado);<br>
+                OUTPUT:<br>
+                1
+            </p>
+        </article>
+        <article>
+            <h2 id="pi">Propiedades</h2>
+            <p>
+                Math.PI Ratio de una circunferencia respecto a su diametro.<br>
+                Math.SQRT1_2 Raiz cuadrada de un medio.<br>
+                Math.SQRT2 Raiz cuadrada de dos.<br>
+                Mat.E Constante de Euler.<br>
+                Math.LN2 Logarítmo natural de 2.<br>
+                Math.LN10 Logarítmo natural de 10.<br>
+                Math.LOG2E Logarítmo de E con base 2.<br>
+                Math.LOG10E Logarítmo de E con base 10.<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="seti">setInterval</h2>
+            <p>
+                Establece un bucle en el cual se ejecuta una funcion continuamente cada la cantidad  de
+                milisegundos establecida, siendo el primer parámetro el funcion y el segundo los minisegundos,
+                cuando se escriba la funcion como argumento deberá ir sin parentesis.
+            </p>
+            <p>
+                Ej:<br>
+                const alertar = () => { alert('ALERTA!') }<br>
+                setInterval(alertar, 3000);
+            </p>
+        </article>
+        <article>
+            <h2 id="date">date()</h2>
+            <p>
+                Crea un objeto que aloja la fecha y hora actual siempre que este acompañado 
+                de la palabra new EJ <b>let a = new Date();</b>
+            </p>
+            <p>
+                Las fechas en JavaScript son calculadas en millisegundos desde el 1 
+                de enero de 1970, y cuenta los meses desde 0 (enero) a 11 (diciembre)
+            </p>
+            <div width="300px" style="display: flex; justify-content:center;">
+                <img src="../images/date.png">
+            </div>
+        </article>
+    </section>
+    <!-- <script src="../js/Caso43.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta cherset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>JS - Basico</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="./poo.html">OBJETOS</a></li>
+                <li><a href="./metodos.html">METODOS</a></li>
+                <li><a href="./console.html">CONSOLA</a></li>
+                <li><a href="#">DOM</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <p>Conceptos</p>
+                <li><a href="#dom">Dom</a></li>
+                <li><a href="#nod">Nodo</a></li>
+                <li><a href="#doc">Document</a></li>
+                <li><a href="#elm">Element</a></li>
+                <li><a href="#txt">Text</a></li>
+                <li><a href="#att">Attribute</a></li>
+                <li><a href="#comen">Comentarios & otros</a></li>
+                <li><a href="#valu">Valores</a></li>
+                <p>Metodos de seleccion de elementos: document.</p>
+                <li><a href="#id">getElementById()</a></li>
+                <li><a href="#class">getElementsByClassName()</a></li>
+                <li><a href="#tag">getElementByTagName()</a></li>
+                <li><a href="#qs">querySelector()</a></li>
+                <li><a href="#qsa">querySelectorAll()</a></li>
+                <li><a href="#null">Elemento no encontrado</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="dom">DOM</h2>
+            <p>
+                El modelo de objeto de documento (DOM) es una interfaz de programación para los documentos HTML y XML.
+                Facilita una representación estructurada del documento y define de qué manera los programas pueden acceder,
+                al fin de modificar, tanto su estructura, estilo y contenido. El DOM da una representación del documento
+                como un grupo de nodos y objetos estructurados que tienen propiedades y métodos. Esencialmente, conecta las
+                páginas web a scripts o lenguajes de programación.
+            </p>
+        </article>
+        <article>
+            <h2 id="nod">Nodo</h2>
+            <p>
+                Es cualquier etiqueta del cuerpo, como un párrafo, el mismo body o incluso las etiquetas de una lista.
+            </p>
+        </article>
+        <article>
+            <h2 id="doc">Document</h2>
+            <p>
+                El nodo document es el nodo raiz, a partir del cual derivan el resto de nodos.
+            </p>
+        </article>
+        <article>
+            <h2 id="elm">Element</h2>
+            <p>
+                Nodos definidos por etiquetas html
+            </p>
+        </article>
+        <article>
+            <h2 id="txt">Text</h2>
+            <p>
+                Es el texto adentro de un nodo <b>element</b> se considera un nuevo nodo <b>hijo</b>
+                de tipo text.
+            </p>
+        </article>
+        <article>
+            <h2 id="att">Attribute</h2>
+            <p>
+                Los atributos de las etiquetas definen nodos. (En js no serán vistos como tales sino como
+                información asociada al nodo tipo element).
+            </p>
+        </article>
+        <article>
+            <h2 id="comen">Comentarios & otros</h2>
+            <p>
+                Los comentarios  y otros elementos como las declaraciones doctype en la cabecera generan también
+                generan nodos.
+            </p>
+        </article>
+        <article>
+            <h2 id="valu">Valores</h2>
+            <ul>
+                <li>
+                    <p>ELEMENT_NODE value:1</p>
+                </li>
+                <li>
+                    <p>ATTRIBUTE_NODE value:2</p>
+                    <p>NO USADO</p>
+                </li>
+                <li>
+                    <p>TEXT_NODE value:3</p>
+                </li>
+                <li>
+                    <p>CDATA_SECTION_NODE value:4</p>
+                    <p>NO USADO</p>
+                </li>
+                <li>
+                    <p>ENTITY_REFERENCE_NODE value:5</p>
+                    <p>NO USADO</p>
+                </li>
+                <li>
+                    <p>ENTITY_NODE value:6</p>
+                    <p>NO USADO</p>
+                </li>
+                <li>
+                    <p>PROCESSING_INSTRUCTION_NODE value: 7</p>
+                </li>
+                <li>
+                    <p>COMMENT_NODE value:8</p>
+                </li>
+                <li>
+                    <p>DOCUMENT_NODE value:9</p>
+                </li>
+                <li>
+                    <p>DOCUMENT_TYPE_NODE value:10</p>
+                </li>
+                <li>
+                    <p>DOCUMENT_FRAGMENT_NODE value:11</p>
+                </li>
+                <li>
+                    <p>NOTATION_NODE value:12</p>
+                    <p>NO USADO</p>
+                </li>
+            </ul>
+        </article>
+        <article>
+            <h2 id="id">getElementByID()</h2>
+            <p>
+                Selecciona un elemento por ID.
+            </p>
+            <p>
+                EJ:<br>
+                let par = document.getElementById('parrafo');<br>
+                document.write(par)<br>
+                OUTPUT EJ:<br>
+                [object HTMLParagraphElement]
+            </p>
+        </article>
+        <article>
+            <h2 id="class">getElementsByClassName()</h2>
+            <p>
+                Selecciona todos los elementos que contengan la clase especificada. Devuelve una collecion 
+                similar a un array, htmlCollection.
+            </p>
+            <p>
+                EJ:<br>
+                let par = document.getElementByClassName('parrafo');<br>
+                document.write(par[0]);<br>
+                OUTPUT:<br>
+                [object HTMLParagraphElement]<br>
+                Nota: Si el indice no fuera determinado, devolvería [object HTMLCollection]
+            </p>
+        </article>
+        <article>
+            <h2 id="tag">getElementsByTagName()</h2>
+            <p>
+                Selecciona todos los elementos que coincidan con la etiqueta especificada.Devuelve una collecion 
+                similar a un array, htmlCollection.
+            </p>
+            <p>
+                EJ:<br>
+                let par = document.getElementByTagName('p');<br>
+                document.write(par[0]);<br>
+                OUTPUT:<br>
+                [object HTMLParagraphElement]<br>
+                Nota: Si el indice no fuera determinado, devolvería [object HTMLCollection]
+            </p>
+        </article>
+        <article>
+            <h2 id="qs">querySelector</h2>
+            <p>Devuelve el primer elemento que se corresponda con el grupo especificado de selectores</p>
+            <p>
+                EJ:<br>
+                let par = document.querySelector('.parrafo');
+                document.write(par)
+                OUTPUT:<br>
+                [object HTMLParagraphElement]<br>
+            </p>
+            <p>
+                EJ2:<br>
+                let par = document.querySelector('#parrafo');
+                document.write(par)
+                OUTPUT:<br>
+                [object HTMLParagraphElement]<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="qsa">querySelectorAll</h2>
+            <p>
+                Devuelve todos los elementos que coincidan con el grupo especificados de selectores.
+                Devuelve una collecion similar a un array, NodeList.
+            </p>
+            <p>
+                EJ:<br>
+                let par = document.querySelectorAll('.parrafo');
+                document.write(par[0]);
+                Nota: Si el indice no fuera determinado, devolvería [object NodeList]
+            </p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+        <article>
+            <h2 id=""></h2>
+            <p></p>
+        </article>
+    </section>
+</body>
+</html>

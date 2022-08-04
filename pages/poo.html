@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>CSS - POO</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="#">OBJETOS</a></li>
+                <li><a href="./metodos.html">METODOS</a></li>
+                <li><a href="./console.html">CONSOLA</a></li>
+                <li><a href="./dom.html">DOM</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#poo">Programación orientada a objetos</a></li>
+                <li><a href="#obj">Objeto</a></li>
+                <li><a href="#bas">Conceptos básicos</a></li>
+                <li><a href="#ej">Ejemplos básicos</a></li>
+                <li><a href="#abs">Abstracción</a></li>
+                <li><a href="#mod">Modularidad</a></li>
+                <li><a href="#enc">Encapsulado</a></li>
+                <li><a href="#pol">Polimorfismo</a></li>
+                <li><a href="#her">Herencia <i>extends</i></a></li>
+                <li><a href="#sta">Metodos estáticos <i>static</i></a></li>
+                <li><a href="#gets">Metodos getters & setters</a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="poo">Programación orientada a objetos</h2>
+            <p>
+                OOP (Programación orientada a objetos) es un paradigma de programación en el que los datos 
+                son encapsulados en objetos, los cuales tienen su propio comportamiento.<br>
+                JavaScript esta altamente orientado a objetos. Sigue el modelo basado en prototipado 
+                (en oposición al modelo basado en clases).
+            </p>
+        </article>
+        <article>
+            <h2 id="obj">Objeto</h2>
+            <p>
+                Un objeto es una colección de datos relacionados y/o funcionalidad
+                (que generalmente consta de algunas variables y funciones, que se denominan propiedades y
+                métodos cuando están dentro de objetos).
+            </p>
+        </article>
+        <article>
+            <h2>Conceptos básicos</h2>
+            <h3>Clases</h3>
+            <p>
+                Definiendo clases
+                Las clases son "funciones especiales", como las expresiones de funciones y declaraciones de 
+                funciones, la sintaxis de una clase tiene dos componentes: expresiones de clases y declaraciones 
+                de clases. Las clases de JavaScript proveen una sintaxis mucho más clara y simple para crear objetos 
+                y lidiar con la herencia.
+            </p>
+            <h3>Metodos</h3>
+            <p>
+                El valor de una propiedad puede ser una función, en cuyo caso la propiedad es conocida como un método.
+                Nota: 
+            <h3>Constructor</h3>
+            <p>
+                Al crearse la clase es necesario crear también un constructor que creara las propiedades del objeto.
+            </p>
+            <h3>instanciación</h3>
+            <p>
+                Cuando la clase es creada se dice que está "instanciada"
+            </p>
+        </article>
+        <article>
+            <h2 id="ej">Ej:</h2>
+            <p>Creado clases:</p>
+            <p>
+                <b>
+                    class animal {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;constructor(especie,edad,color) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.especie = especie;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.edad = edad;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.color = color;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.info = `Esta animal es de la especie ${this.especie}, de color ${color}, y ${edad} año/s.`
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;verInfo() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.info);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+                </b>
+                Nota: Cuando se establece el this.algo estoy referenciando al objeto que voy a crear, 
+                ,es decir, estoy creando sus <b>propiedades</b>mientras que especie, por ejemplo son los parámetros 
+                de los valores que alojaremos dentro de las propiedades del objeto.
+            </p>
+            <p>Instanciando Objeto</p>
+            <p>
+                <b>
+                    let gato = new animal("perro", 5, "rojo");<br>
+                </b>
+                Nota: Si el valor de las propiedades no es especificado el valor por defecto será "undefined",
+                aunque las propiedades seguiran existiendo.
+            </p>
+            <h3>Accediendo a propiedades & metodos</h3>
+            <p>
+                <b>
+                    INPUT:<br>
+                    console.log(perro.color);<br>
+                    OUTPUT:<br>
+                    "rojo"<br>
+                </b>
+                Nota: Para acceder a cualquier propiedad será necesario usar un punto seguido del nombre de la 
+                propiedad.<br>
+                <b>
+                    INPUT:<br>
+                    perro.verInfo();<br>
+                    OUTPUT:<br>
+                    "Esta animal es de la especie perro, de color rojo, y 5 año/s."<br>
+                </b>
+            </p>
+                El metodo puede ser creado fuera de la propiedad, pero nombrado como valor dentro de una propiedad.<br>
+                EJ:<br>
+                INPUT:<br>
+                function animal(tipo){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;this.tipo = tipo;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;this.sonido = hablar;<br>
+                }<br>
+                function hablar() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log('Waw!');<br>
+                }<br>
+                let perro = new animal('perro');<br>
+                perro.sonido();<br>
+                OUTPUT:<br>
+                'Waw!'
+            </p>
+        </article>
+        <article>
+            <h2 id="abs">Abstracción</h2>
+            <p>
+                En programación, una abstracción es una manera de reducir la complejidad y permitir un diseño 
+                e implementación más eficientes en sistemas de software complejos. En programación orientada a objetos 
+                es la simplificación de un objeto. 
+            </p>
+        </article>
+        <article>
+            <h2 id="mod">Modularidad</h2>
+            <p>
+                Es conveniente simplificar la escritura de codigo en múltiples soluciones 
+                en vez de crear una solucion muy grande que sea demasiado abarcativa en terminos del problema que estoy 
+                solucionando debido a que un solo error en el codigo podría costarnos todo el trabajo conseguido, en cambio 
+                si simplifico la solucion en multiples "partes" si hay un solo error, solo tendré que correjir la "parte"
+                en la que está el error.Un módulo es una porción de un programa de ordenador. De las varias tareas que debe 
+                realizar un programa para cumplir con su función u objetivos, un módulo realizará, comúnmente, una de dichas 
+                tareas (o varias, en algún caso)
+            </p>
+        </article>
+        <article>
+            <h2 id="enc">Encapsulado</h2>
+            <p>
+                El encapsulado es el ocultamiento de información sensible a la que se le priva al usuario el acceso.
+            </p>
+        </article>
+        <article>
+            <h2 id="pol">Polimorfismo</h2>
+            <p>
+                Es la cualidad de un objeto de reaccionar con diferencia a otro objeto ante la ejecución de un 
+                metodo.
+            </p>
+        </article>
+        <article>
+            <h2 id="her">Herencia</h2>
+            <p>
+                La herencia es la creación de una clase que funcione igual que una clase diferente la establecida
+                con la diferencia de que se le puede agregar propiedades y funcionalidades extra.
+            </p>
+            <p>
+                Ej:<br>
+                <b>
+                    class perro extends animal {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;constructor(especie,edad,color,raza) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(especie,edad,color);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.raza = raza;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;ladrar() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Waw!');<br>
+                        }<br>
+                    }<br>
+                    <br>
+                    let dogo = new perro('perro', 5, negro, 'sharpey');<br>
+                </b>
+                Nota: No puedo tener una clase con el mismo nombre que el objeto.
+            </p>
+            <p>
+                El perro heredara todas las propiedades de animal y adicionalmente tendrá la propiedad 
+                raza y el metodo ladrar.
+            </p>
+        </article>
+        <article>
+            <h2 id="sta">Metodos estáticos</h2>
+            <p>
+                Un metodo estático es un metodo que no necesita que la clase se defina para poder ser creado.
+                Para ello se usa la palabra clave "static"
+            </p>
+            <p>
+                Ej:<br>
+                <b>
+                    class perro extends animal {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;constructor(especie,edad,color,raza) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(especie,edad,color);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.raza = raza;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;static ladrar() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('Waw!')<br>
+                        }<br>
+                    }<br>
+                    perro.ladrar();<br>
+                    OUTPUT:<br>
+                    'Waw!'<br>
+                    Nota: Puede llamarse directamente el metodo aunque el objeto no exista ya que el metodo 
+                    es estático. si el metodo referenciara alguna propiedad dicha propiedad recibira el valor 
+                    undefined.
+            </p>
+        </article>
+        <article>
+            <h2 id="gets">Metodos getters & setters</h2>
+            <p>
+                Los metodos getters son aquellos que sirven para obtener un valor, mientras que los setters son 
+                para modificarlos o definirlos.
+            </p>
+            
+            <p>
+                Ej:<br>
+                <b>
+                    class perro extends animal {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;constructor(especie,edad,color,raza) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(especie,edad,color);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.raza = null;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;set setRaza(newName) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.raza = newName;<br>
+                        }<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;get getRaza() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.raza;<br>
+                        }<br>
+                    }<br><br>
+                    let perroA = new perro('perro', 5, negro, 'sharpey');<br>
+                    perroA.modificarRaza = 'Pastor Aleman';<br>
+                    console.log(perroA.getRaza);<br>
+                    OUTPUT:<br>
+                    Pastor aleman<br>
+                </b>
+                Nota: Los seteos no serán considerados como metodos así que deben ser empleados como propiedad.
+            </p>
+        </article>
+    </section>
+    <!-- <script src="../js/Caso34.js"></script> -->
+</body>
+</html>
