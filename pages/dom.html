@@ -39,22 +39,75 @@
                 <li><a href="#qs">querySelector()</a></li>
                 <li><a href="#qsa">querySelectorAll()</a></li>
                 <li><a href="#null">Elemento no encontrado</a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <p>Metodos para definir, obtener y eliminar valores de atributos.</p>
+                <li><a href="#seta">setAttribute()</a></li>
+                <li><a href="#geta">getAttribute()</a></li>
+                <li><a href="#rema">removeAttribute()</a></li>
+                <p>Metodos para modificar atributos globales.(Aquellos que tienen todos los elementos html).</p>
+                <li><a href="#nota">Nota sobre los metodos globales</a></li>
+                <li><a href="#class">class</a></li>
+                <li><a href="#conten">contenteditable</a></li>
+                <li><a href="#hidden">.hidden</a></li>
+                <li><a href="#dir">.dir</a></li>
+                <li><a href="#idd">.id</a></li>
+                <li><a href="#tabindex">.tabindex</a></li>
+                <li><a href="#title">.title</a></li>
+                <li><a href="#style">.style</a></li>
+                <p>Metodos "directos".</p>
+                <li><a href="#className">.className</a></li>
+                <li><a href="#value">.value</a></li>
+                <li><a href="#type">.type</a></li>
+                <li><a href="#accep">.accept</a></li>
+                <li><a href="#form">.form</a></li>
+                <li><a href="#minl">.minlength</a></li>
+                <li><a href="#plho">.placeholder</a></li>
+                <li><a href="#requi">.required</a></li>
+                <p>Más de style</p>
+                <li><a href="#sty">.style()</a></li>
+                <p>Clases, classList y metodos de classList</p>
+                <li><a href="#classl">.classList</a></li>
+                <li><a href="#add">.add()</a></li>
+                <li><a href="#remove">.remove()</a></li>
+                <li><a href="#ittem">.item()</a></li>
+                <li><a href="#contains">.contains()</a></li>
+                <li><a href="#replace">.replace()</a></li>
+                <li><a href="#toggle">.toggle()</a></li>
+                <p>Obtencion y modificación de elementos</p>
+                <li><a href="#textContent">.textContent</a></li>
+                <li><a href="#innerText">.innerText</a></li>
+                <li><a href="#outerText">.outerText</a></li>
+                <li><a href="#innerHTML">.innerHTML</a></li>
+                <p>Creación de elementos.</p>
+                <li><a href="#createElement">.createElement()</a></li>
+                <li><a href="#createTextNode">.createTextNode()</a></li>
+                <li><a href="#createDocumentFragment">.createDocumentFragment()</a></li>
+                <li><a href="#cloneNode">.cloneNode()</a></li>
+                <p>Obtencion y modificacion de Childs, hijos. (Propiedades)</p>
+                <li><a href="#firstChild">.firstChild()</a></li>
+                <li><a href="#lastChild">.lastChild()</a></li>
+                <li><a href="#firstElementChild">.firstElementChild</a></li>
+                <li><a href="#lastElementChild">.lastElementChild</a></li>
+                <li><a href="#childNodes">.childNodes</a></li>
+                <li><a href="#children">.children</a></li>
+                <p>Metodos de Childs</p>
+                <li><a href="#appendChild">.appendChild()</a></li>
+                <li><a href="#replaceChild">.replaceChild()</a></li>
+                <li><a href="#removeChild">.removeChild()</a></li>
+                <li><a href="#hasChildNodes">.hasChildNodes()</a></li>
+                <p>Propiedades de Parents</p>
+                <li><a href="#parentsElements">.parentsElements</a></li>
+                <li><a href="#parentNode">.parentNode</a></li>
+                <p>Propiedades de sibilings(hermanos)</p>
+                <li><a href="#nextSibiling">.nextSibiling</a></li>
+                <li><a href="#previousSibiling">.previousSibiling</a></li>
+                <li><a href="#nextElementSibiling">.nextElementSibiling</a></li>
+                <li><a href="#previousElementSibiling">.previousElementSibiling</a></li>
+                <p>Nodos - Extras</p>
+                <li><a href="#closest">.closest()</a></li>
+                <li><a href="#setInterval">setInterval()</a></li>
+                <li><a href="#clearInterval">clearInterval()</a></li>
+                <p>EVENTOS</p>
+                <li><a href="events">EVENTOS</a></li>
             </ul>
         </section>
     </header>
@@ -223,79 +276,787 @@
             </p>
             <p>
                 EJ:<br>
-                let par = document.querySelectorAll('.parrafo');
-                document.write(par[0]);
-                Nota: Si el indice no fuera determinado, devolvería [object NodeList]
+                let par = document.querySelectorAll('.parrafo');<br>
+                document.write(par[0]);<br>
+                Nota: Si el indice no fuera determinado, devolvería [object NodeList]<br>
             </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="null">Elemento no encontrado</h2>
+            <p>
+                Si el elemento que quiero capturar dentro de una variable no existe devolvera <b><i>null</i></b>
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="seta">setAttribute()</h2>
+            <p>
+                Modifica el valor de un atributo.<br>
+                Establece el valor de un atributo en el elemento indicado. Si el atributo ya existe, el valor es actualizado, en caso contrario,
+                el nuevo atributo es añadido con el nombre y valor indicado.<br>
+                EL primer parámetro es el nombre del atributo y el segundo es el valor al que va a cambiar.<br>
+                Puedo establecer atributos y valores que no se correspondan con ninguna propiedad css y aún así se agregaran.
+            </p>
+            <p>
+                Ej:<br>
+                let inputNumber = document.querySelector('#inputNumber');<br>
+                inputNumber.setAttribute('type','text');
+                Nota: Ahora el elemento input de id "inputNumber" es de tipo text.
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="geta">getAttribute()</h2>
+            <p>
+                getAttribute() devuelve el valor del atributo especificado en el elemento. Si el atributo especificado no existe, 
+                el valor retornado puede ser tanto null como "" (una cadena vacía).<br>
+                Lo obtenido siempre será el valor del atributo especificado.
+            </p>
+            <p>
+                INPUT:<br>
+                let inputNumber = document.querySelector('#inputNumber');<br>
+                let atributoInputNumber = inputNumber.getAttribute('type');<br>
+                console.log(atributoInputNumber);<br>
+                OUTPUT: <br>
+                'range'
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="rema">removeAttribute()</h2>
+            <p>
+                removeAttribute elimina un atributo del elemento especificado.
+            </p>
+            <p>
+                let inputNumber = document.querySelector('#inputNumber');<br>
+                inputNumber.removeAttribute('type');<br>
+                NOTA: Ahora la propiedad del input con su valor a sido removida.
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="nota">Nota sobre los metodos globales</h2>
+            <p>
+                A diferencia de los demás metodos mencionados, los metodos globales deben ser igualados a un valor para ser modificados.
+                Es por eso que no tienen parentesis ni reciben un argumento de función. Además todos los mencionados pueden ser establecidos 
+                como atributos html.
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="class">.class</h2>
+            <p>
+                Lista de clases de un elemento separadas por espacios. Si se desean introcir clases se
+                deberá usar getAttribute('class','nombreDeLaClase'); no funciona de otra forma.
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="conten">.contentEditable</h2>
+            <p>
+                Es una propiedades que puede ser establecida en un elemento. Si es false, el elemento 
+                no puede ser modificado por el usuario, si es true, si puede serlo. Si el atributo no existe es creado, debe ser igualado 
+                a un valor booleano para modificarse. Si no es igualado, devolvera un string con el valor que tenga (true o false);
+            </p>
+            <p>
+                Ej:<br>
+                let parrafo = document.querySelector('#parrafo');<br>
+                parrafo.contentEditable = true;
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="dir">.dir</h2>
+            <p>
+                Indica la direccion del texto. Recibe dos valores string: rtl y ltr. 
+            </p>
+            <p>
+                Ej:<br>
+                let parrafo = document.querySelector('#parrafo');<br>
+                parrafo.dir = 'rtl';
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="hidden">.hidden</h2>
+            <p>
+                Indica si un elemento, es o no, relevante. No recibe valor. Oculta el elemento. No importa el valor que reciba, con solo 
+                introducir la propiedad desaparecera el elemento. Aún así en js, deberá recibir un valor diferente de false para ser 
+                establecida.
+            </p>
+            <p>
+                Ej:<br>
+                let parrafo = document.querySelector('#parrafo');<br>
+                parrafo.hidden = true;
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="idd">.id</h2>
+            <p>
+                Define un identificador único.
+            </p>
+            <p>
+                Ej:
+                let parrafo = document.querySelector('.par');<br>
+                parrafo.id = 'par';
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="tabindex">.tabIndex</h2>
+            <p>
+                Indica si un elemento puede seleccionar o no.<br>
+                El atributo global tabindex indica si su elemento puede ser enfocado, y si participa en la navegación secuencial del 
+                teclado (usualmente con la tecla Tab, de ahí el nombre). Acepta un entero como valor, con diferentes resultados que 
+                dependen de dicho valor. Debependiendo del numero que tengan harán un reccorido con la tecla tab.
+            </p>
+            <p>
+                <b>Un valor negativo</b> (usualmente tabindex="-1") significa que el elemento debe ser enfocado, pero no debe de ser accesible a
+                través de la navegación secuencial del teclado. Es útil para crear widgets accesibles con JavaScript.
+            </p>
+            <p>
+                <b>tabindex="0"</b> significa que el elemento debe ser enfocado y ser accesible a través de la navegación secuencial del teclado,
+                pero su orden relativo es definido por convención de la plataforma.            
+            </p>
+            <p>
+                <b>un valor positivo</b> significa que debe poder recoger el foco y alcanzable a través de la navegación secuencial del 
+                teclado; su orden relativo es definido por el valor del atributo: la secuencia sigue el aumento del número de tabindex.
+                 Si varios elementos comparten el mismo tabindex, su orden relativo sigue la posición relativa en el documento.
+            </p>
+            <p>
+                <b>Un elemento con valor 0, un valor inválido o sin valor de tabindex</b>, debe de ser posicionado después de elementos con un tabindex
+                postivo en el orden de navegación secuencial del teclado.
+            </p>
+            <p>
+                <p>
+                    Ej:<br>
+                    let parrafo = document.querySelector('#parrafo');<br>
+                    parrafo.tabindex = 1;
+                </p>
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="title">.title</h2>
+            <p>
+                Contiene un texto con la información relacionada al texto que pertenece. En html muestra la informacion cuando el mouse 
+                es superpuesto.
+            </p>
+            <p>
+                Ej:<br>
+                    let parrafo = document.querySelector('#parrafo');<br>
+                    parrafo.title = 'Texto';
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="style">.style</h2>
+            <p>
+                Contiene las declaraciones de estilo css para ser aplicadas a un elemento. Luego de style va un punto seguido de la propiedad 
+                a ser modificada.
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="className">.className</h2>
+            <p>
+                .className obtiene y establece el valor del atributo class del elemento especificado. Asignar "className" puede ser conveniente
+                para los casos en los que está seguro de que no se usarán otras clases en el elemento. Cuando se usa className la clase 
+                asignada será la única establecida.
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par')<br>
+                par.className = 'parrafo';<br>
+                console.log(par.className);<br>
+                OUTPUT:<br>
+                parrafo
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="value">.value</h2>
+            <p>
+                .value obtiene y establece el valor del atributo value del input especificado.
+            </p>
+            <p>
+                INPUT:<br>
+                let input = document.querySelector('.inputText')<br>
+                input.value = 555;<br>
+                console.log(input.value);<br>
+                OUTPUT:<br>
+                555
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="type">.type</h2>
+            <p>.type obtiene y establece el valor del atributo type del input especificado.</p>
+            <p>
+                INPUT:<br>
+                let input = document.querySelector('.inputText')<br>
+                input.type = number;<br>
+                console.log(input.number);<br>
+                OUTPUT:<br>
+                number
+            </p>
         </article>
         <article>
-            <h2 id=""></h2>
-            <p></p>
+            <h2 id="accep">.accept</h2>
+            <p>
+                Se usa para determina los archivos que aceptara un input de tipo file.
+            </p>
+            <p>
+                EJ:<br>
+                let input = document.querySelector('.inputFile')<br>
+                input.accept = 'image/png';<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="form">.form</h2>
+            <p>
+                Se usa para asociar los inputs que están por fuera del formularios, el valor que deberán recibir debe ser igual al id 
+                del formulario. En html el atributo es form="idFormulario".
+            </p>
+            <p>
+                Ej:<br>
+                let inputSubmit = document.querySelector('#submitForm');<br>
+                inputSubmit.form = 'formContact';
+            </p>
+        </article>
+        <article>
+            <h2 id="minl">.minLength</h2>
+            <p>
+                Se usa para determinar el minimo de caracteres necesario para enviar un formulario, si no tiene el minimo necesario no lo 
+                enviara.
+            </p>
+            <p>
+                Ej:<br>
+                let inputText = document.querySelector('#textInput');<br>
+                inputText.minLength = 7;<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="plho">.placeholder</h2>
+            <p>
+                Se usa para escribir un texto de referencia dentro de los inputs que admiten texto.
+            </p>
+            <p>
+                Ej:<br>
+                let inputText = document.querySelector('#textInput');<br>
+                inputText.placeholer = 'Escriba su texto aquí';<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="requi">.required</h2>
+            <p>
+                Determina que el input será requerido para enviar el formulario. Puedo establecer cualquier cosa como valor excepto false.
+            </p>
+            <p>
+                Ej:<br>
+                let inputText = document.querySelector('#textInput');<br>
+                inputText.required = true;<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="sty">Más de .style</h2>
+            <p>
+                Modifica el estilo del elemento. La sintaxis es la siguiente: element.style.propiedadAModificar = 'valor';<br>
+                Si hay una propiedad formada por dos palabras como <b>background-color</b> se remueve el guion y se introduce el estilo 
+                camelCase.
+            </p>
+            <p>
+                Ej:<br>
+                let par = document.querySelector('.par');<br>
+                par.style.backgroundColor = 'black';<br>
+                par.style.color = 'red';
+            </p>
+        </article>
+        <article>
+            <h2 id="classl">classList</h2>
+            <p>
+                La propiedad de sólo lectura Element.classList devuelve una colección activa de DOMTokenList de los atributos de clase del 
+                elemento.<br>
+                Usar classList es una forma práctica de acceder a la lista de clases de un elemento como una cadena de texto delimitada por
+                espacios a través de element.className.<br>
+                .classList tiene muchos metodos que pueden ser usados.
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                console.log(par.classList);<br>
+                OUTPUT:<br>
+                DOMTokenList(2) ['par', 'par2', value: 'par par2']
+            </p>
+        </article>
+        <article>
+            <h2 id="add">.add()</h2>
+            <p>Añade una clase</p>
+            <p>
+                INPUT: <br>
+                let par = document.querySelector('.par');<br>
+                par.classList.add('par3');<br>
+                console.log(classList);<br>
+                OUTPUT: <br>
+                DOMTokenList(3) ['par', 'par2', 'par3', value: 'par par2 par3']<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="remove">.remove()</h2>
+            <p>Remueve una clase</p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                par.classList.remove('par2')
+                console.log(par.classList);<br>
+                OUTPUT:<br>
+                DOMTokenList ['par', value: 'par']
+            </p>
+        </article>
+        <article>
+            <h2 id="ittem">.item()</h2>
+            <p>
+                Devuelve el índice de la clase.
+            </p>
+            <p>
+                INPUT: <br>
+                let par = document.querySelector('.par');<br>
+                console.log(par.classList.item(0));<br>
+                OUTPUT: <br>
+                par<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="contains">.contains()</h2>
+            <p>
+                Recibe por argumento el nombre de una clase que quieran consultar, si la clase existe dentro del elemento devolverá true, 
+                en caso contrario false.
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                console.log(par.classList.contains('par'));<br>
+                OUTPUT:<br>
+                true
+            </p>
+        </article>
+        <article>
+            <h2 id="replace">.replace()</h2>
+            <p>
+                Reemplaza una clase existente por una nueva. Recibe dos parámetros el primero, es la clase que deseo reemplazar, y la segunda 
+                la nueva.
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                par.classList.replace('par', 'par1');<br>
+                console.log(par.classList);<br>
+                OUTPUT:<br>
+                DOMTokenList(2) ['par1', 'par2', value: 'par1 par2']
+            </p>
+        </article>
+        <article>
+            <h2 id="toggle">.toggle()</h2>
+            <p>
+                Cuando sólo hay un argumento presente: Alterna el valor de la clase; ej., si la clase existe la elimina
+                y devuelve false, si no, la añade y devuelve true.<br>
+                Cuando el segundo argumento está presente: Si el segundo argumento se evalúa como true, se añade la clase
+                indicada, y si se evalúa como false, la elimina.<br>
+                Es decir, si existe la clase, la elimina y si no existe la agrega. Si en el segundo parámetro insertamos true 
+                dejará la clase aunque exista, si insertamos false la sacará siempre aunque no esté.
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                par.classList.toggle('par', true);<br>
+                console.log(par.classList);<br>
+                OUTPUT:<br>
+                DOMTokenList(2) ['par1', 'par2', value: 'par1 par2']
+            </p>
+        </article>
+        <article>
+            <h2 id="textContent">.textContent</h2>
+            <p>
+                Devuelve el texto de cualquier nodo y permite modificarlo. No devuelve el html que contengan. Muestra también el texto oculto.
+                Standard.
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                par.textContent = 'HOLA MUNDO';<br>
+                console.log(par.textContent);<br>
+                OUTPUT:<br>
+                HOLA MUNDO
+            </p>
+        </article>
+        <article>
+            <h2 id="innerText">.innerText</h2>
+            <p>
+                innerText a diferencia de textContent no analizan los elementos ocultos ni todos los elementos. NO SE USA(OBSOLETO)
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                par.innerText = 'HOLA MUNDO'<br>
+                console.log(par.innerText);<br>
+                OUTPUT:<br>
+                HOLA MUNDO
+            </p>
+        </article>
+        <article>
+            <h2 id="outerText">.outerText</h2>
+            <p>
+                Devuelve el mismo valor que HTMLElement.innerText. Cuando se usa como setter, reemplaza todo el nodo actual con el texto dado 
+                (esto difiere de innerText, que reemplaza el contenido dentro del nodo actual). NO SE USA(OBSOLETO).
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                par.outerText = 'HOLA MUNDO'<br>
+                console.log(par.outerText);<br>
+                OUTPUT:<br>
+                HOLA MUNDO
+            </p>
+        </article>
+        <article>
+            <h2 id="innerHTML">.innerHTML</h2>
+            <p>
+                La propiedad Element.innerHTML devuelve o establece la sintaxis HTML describiendo los descendientes del elemento.
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                par.innerHTML = '&lt;p&gt;HOLA &lt;b&gt;MUNDO&lt;/b&gt;&lt;p&gt;'<br>
+                console.log(par.innerHTML);<br>
+                OUTPUT:<br>
+                &lt;p class="p"&gt;HOLA &lt;b&gt;MUNDO&lt;/b&gt;&lt;p&gt;
+            </p>
+        </article>
+        <article>
+            <h2 id="outerHTML">.outerHTML</h2>
+            <p>
+                La propiedad .outerHTML no solo hace lo mismo que .innerHTML sino que ademas nos muestra el contenido de las etiquetas 
+                atributos y valores que están escondidos junto con el estilo.
+            </p>
+            <p>
+                INPUT:<br>
+                let par = document.querySelector('.par');<br>
+                console.log(par.outerHTML);<br>
+                OUTPUT:<br>
+                &lt;p class="p"&gt;HOLA &lt;b hidden=""&gt;MUNDO&lt;/b&gt;&lt;p&gt;
+            </p>
+        </article>
+        <article>
+            <h2 id="createElement">.createElement()</h2>
+            <p>
+                En un documento HTML, el método Document.createElement() crea un elemento HTML especificado por su tagName, 
+                o un HTMLUnknownElement (en-US) si su tagName no se reconoce. En un documento XUL, crea el elemento XUL especificado.<br> 
+                En otros documentos, crea un elemento con un namespace URI null.<br>
+                .createElement() solo reconoce elementos en mayúsculas.
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.contenedor');<br>
+                const item = document.createElement('LI');<br>
+                contenedor.appendChild(item)
+            </p>
+        </article>
+        <article>
+            <h2 id="createTextNode">.createTextNode()</h2>
+            <p>
+                Crea un nuevo nodo de texto. Para agregar un texto no se podrá usar innerHTML ni innerText será necesario un <b>metodo</b>.
+                Aunque es más simple usar innerText para crear su texto aunque no tendrá las mismas caracteristicas que un nodo como es creado 
+                con .createTextNode() .
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.contenedor');<br>
+                const item = document.createElement('LI');<br>
+                const textItem = document.createTextNode('ESTO ES UN ITEM');<br>
+                item.appendChild(textItem);
+            </p>    
+        </article>
+        <article>
+            <h2 id="createDocumentFragment">.createDocumentFragment()</h2>
+            <p>
+                Crea un nuevo DocumentFragment vacio, dentro del cual un nodo del DOM puede ser adicionado para construir un nuevo 
+                arbol DOM fuera de pantalla.<br>
+                Dado que el document fragment es generado en memoria y no como parte del arbol del DOM, agregar elementos al mismo no 
+                causan reflow (computo de la posicion y geometria de los elementos) en la pagina. Como consecuencia, usar document fragments 
+                usualmente resultan en mejor performance.
+            </p>
+            <p>
+                EJ: <br>
+                let container = document.querySelector('.container');<br>
+                const fragment = document.createDocumentFragment();<br>
+                const item = document.createElement('P');<br>
+                item.textContent = 'HOLA MUNDO!!!';<br>
+                fragment.appendChild(item);<br>
+                container.appendChild(fragment);<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="cloneNode">.cloneNode()</h2>
+            <p>
+                El método Node.cloneNode() devuelve un duplicado del nodo en el que este método fue llamado. True para clonar los hijos de 
+                el elemento a clonar, false para clonar solo el elemento.
+            </p>
+            <p>
+                let div = document.getElementById('contenedor');<br>
+                let div2 = div.cloneNode(true);
+            </p>
+        </article>
+        <article>
+            <h2 id="firstChild">.firstChild</h2>
+            <p>
+                La propiedad de solo lectura de la Nodeinterfaz devuelve el primer hijo del nodo en el árbol, o null si el nodo no tiene hijos.
+                Si existe algún tipo de texto como espacio entre las etiquetas o tabulaciones incluso devolverá #text como el primer hijo. 
+                Para que esto no ocurra la etiqueta tendrá que tener inmediata continuidad a la de su elemento padre.
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.container');<br>
+                const primerHijo = contenedor.firstChild;<br>
+                console.log(primerHijo);
+            </p>
+        </article>
+        <article>
+            <h2 id="lastChild">.lastChild</h2>
+            <p>
+                La propiedad de solo lectura de la Nodeinterfaz devuelve el último hijo del nodo en el árbol, o null si el nodo no tiene hijos.
+                Si existe algún tipo de texto como espacio entre las etiquetas o tabulaciones incluso devolverá #text como el último hijo. 
+                Para que esto no ocurra la etiqueta tendrá que tener inmediata continuidad a la de su elemento padre.
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.container');<br>
+                const ultimoHijo = contenedor.lastChild;<br>
+                console.log(ultimoHijo);
+            </p>
+        </article>
+        <article>
+            <h2 id="firstElementChild">.firstElementChild</h2>
+            <p>
+                Devuelve el primer elemento hijo. Si no hay elementos hijos devolverá null.
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.container');<br>
+                const primerHijo = contenedor.firstElementChild<br>
+                console.log(primerHijo);
+            </p>
+        </article>
+        <article>
+            <h2 id="lastElementChild">.lastElementChild</h2>
+            <p>
+                Devuelve el último elemento hijo. Si no hay elementos hijos devolverá null.
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.container');<br>
+                const ultimoHijo = contenedor.lastElementChild<br>
+                console.log(ultimoHijo);
+            </p>
+        </article>
+        <article>
+            <h2 id="childNodes">.childNodes</h2>
+            <p>
+                Devuelve todos los nodos hijos, incluidos texto y comentarios. No es un array. recorrer con forEach.
+            </p>
+            <p>
+                INPUT:<br>
+                const contenedor = document.querySelector('.container');<br>
+                const hijos = contenedor.childNodes;<br>
+                console.log(hijos);<br>
+                OUTPUT:<br>
+                nodeList(7) [hijos]
+            </p>
+        </article>
+        <article>
+            <h2 id="children">.children</h2>
+            <p>
+                Devuelve los elementos hijos. Etiquetas html. No es un array. Usar for in o for of.
+            </p>
+            <p>
+                INPUT:<br>
+                const contenedor = document.querySelector('.container');<br>
+                const hijos = contenedor.children;<br>
+                console.log(hijos);<br>
+                OUTPUT:<br>
+                HTMLcollection(3) [hijos]
+            </p>
+        </article>
+        <article>
+            <h2 id="appendChild">.appendChild()</h2>
+            <p>
+                Agrega un nodo al final de la lista de hijos de un nodo padre especificado. El metodo debe ser usado en un elemento padre.
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.contenedor');<br>
+                const item = document.createElement('LI');<br>
+                contenedor.appendChild(item)
+            </p>
+        </article>
+        <article>
+            <h2 id="replaceChild">.replaceChild()</h2>
+            <p>
+                Reemplaza un nodo secundario dentro del nodo (principal) dado. Recibe por parámetro el hijo que será remplazado, y el 
+                segundo paráetro será el nuevo hijo.
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.contenedor');<br>
+                const item_viejo = document.querySelector('.par');<br>
+                const item_nuevo = document.createElement('P');<br>
+                contenedor.replaceChild(item_nuevo, item_viejo );
+            </p>
+        </article>
+        <article>
+            <h2 id="removeChild">.removeChild()</h2>
+            <p>
+                Remueve un hijo.
+            </p>
+            <p>
+                EJ:<br>
+                const contenedor = document.querySelector('.contenedor');<br>
+                const item_viejo = document.querySelector('.par');<br>
+                contenedor.remove(item_viejo);
+            </p>
+        </article>
+        <article>
+            <h2 id="hasChildNodes">.hasChildNodes()</h2>
+            <p>
+                Devuelve un valor booleano que indica si el nodo principal tiene nodos secundarios o no.
+            </p>
+            <p>
+                INPUT:<br>
+                const contenedor = document.querySelector('.contenedor');<br>
+                console.log(contenedor.hasChildNodes());<br>
+                OUTPUT:<br>
+                true
+            </p>
+        </article>
+        <article>
+            <h2 id="parentElement"></h2>
+            <p>
+                Selecciona el elemento padre del elemento.
+            </p>
+            <p>
+                EJ: <br>
+                const div = document.querySelector('.divHijo');
+                const padre = div.parentElement;
+            </p>
+        </article>
+        <article>
+            <h2 id="parentNode">.parentNode</h2>
+            <p>
+                Selecciona el nodo padre del elemento.
+            </p>
+            <p>
+                EJ: <br>
+                const div = document.querySelector('.divHijo');
+                const padre = div.parentNode;
+            </p>
+        </article>
+        <article>
+            <h2 id="nextSibiling">.nextSibiling</h2>
+            <p>
+                Devuelve el siguiente nodo con respecto al indicado en la lista de nodos (childNodes) a la que este pertenece o null si 
+                el nodo especificado es el último en dicha lista.
+            </p>
+            <p>
+                EJ: <br>
+                const div = document.querySelector('.div');<br>
+                const divHermano = div.nextSibiling;
+            </p>
+        </article>
+        <article>
+            <h2 id="previousSibiling">.previousSibiling</h2>
+            <p>
+                Devuelve el anterior nodo con respecto al indicado en la lista de nodos (childNodes) a la que este pertenece o null si 
+                el nodo especificado es el primero en dicha lista.
+            </p>
+            <p>
+                EJ: <br>
+                const div = document.querySelector('.div');<br>
+                const divHermano = div.previousSibiling;
+            </p>
+        </article>
+        <article>
+            <h2 id="nextElementSibiling">.nextElementSibiling</h2>
+            <p>
+                Devuelve el elemento inmediatamente posterior al especificado, dentro de la lista de elementos hijos de su padre, o bien null
+                si el elemento especificado es el último en dicha lista.
+            </p>
+            <p>
+                EJ: <br>
+                const div = document.querySelector('.div');<br>
+                const divHermano = div.nextElementSibiling;
+            </p>
+        </article>
+        <article>
+            <h2 id="previousElementSibiling">.previousElementSibiling</h2>
+            <p>
+                Devuelve el elemento inmediatamente anterior al especificado, dentro de la lista de elementos hijos de su padre, o bien null
+                si el elemento especificado es el primero en dicha lista.
+            </p>
+            <p>
+                EJ: <br>
+                const div = document.querySelector('.div');<br>
+                const divHermano = div.previousElementSibiling;
+            </p>
+        </article>
+        <article>
+            <h2 id="closest">.closest</h2>
+            <p>
+                devuelve el ascendiente más cercano al elemento actual (o el propio elemento actual) que coincida con el selector 
+                proporcionado por parámetro. Si no existe dicho ascendiente, devuelve null.
+            </p>
+            <p>
+                EJ:<br>
+                const divHijo = document.querySelector('.div');
+                const cercano = divHijo.closest(.div);
+            </p>
+        </article>
+        <article>
+            <h2 id="setInterval">setInterval()</h2>
+            <p>
+                Llama a una función o ejecuta un fragmento de código de forma reiterada, con un retardo de tiempo fijo entre cada llamada.
+                Recibe por parámetro 2 argumentos 1 funcion que será repetida varias veces y el tiempo en milisegundos. Cada vez que se 
+                cumpla el tiempo se ejecutara la funcion.
+            </p>
+            <p>
+                EJ:<br>
+                const mover = setInterval(move,500);<br>
+                function move() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pos +=1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;box.style.left = pos + "px";<br> 
+                }
+            </p>
+        </article>
+        <article>
+            <h2 id="clearInterval">clearInterval()</h2>
+            <p>Detiene la función setInterval() Debe recibir por argumento el nombre de la variable que aloja la función.</p>
+            <p>
+                EJ:<br>
+                const mover = setInterval(move,500);<br>
+                function move() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if(pos >= 150) { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clearInterval(mover);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos +=1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;box.style.left = pos + "px"; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }
+            </p>
+        </article>
+        <article>
+            <h2 id="events">Lista de Eventos</h2>
+            <p>
+                cuando el evento es colocado en forma de propiedad en html se escribe con "on" seguido del nombre del evento, 
+                el evento entonces tiene forma de atributo y el valor que recibe es la funcion().<br>
+                Los eventos onload y onunload son seteados en body o con el objeto window: <b>window.onload = function() {}</b>
+            </p>
+            <div width="300px" style="display:flex; justify-content: center;"><img src="../images/events.png" alt=""></div>
+            <p>onsubtmit: Para formularios.</p>
+            <h3>element.addEventListener(event, function, true/false )</h3>
+            <p>
+                Agrega un evento emparejado de la funcion a un elemento, la funcion va sin parentesis. El tercer parametro se 
+                especifica en caso de que al hacer click, por ejemplo se desencadenara también el evento del padre, es cuando es necesario 
+                especificar cual de los dos eventos se ejecutará primero. bubbling para los elementos que esten más abajo del dom primero 
+                (los hijos) y capturing para los que esten más arriba. Si esta en false será bubbling, valor por defecto, 
+                si es true sera capturing.
+            </p>
         </article>
     </section>
+    <div class="container">HOLA MUNDO</div>
+    <script src="../js/practice.js"></script>
 </body>
 </html>
