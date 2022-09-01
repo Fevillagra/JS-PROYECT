@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>JS - EVENTOS</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="#">OBJETOS</a></li>
+                <li><a href="./metodos.html">METODOS</a></li>
+                <li><a href="./console.html">CONSOLA</a></li>
+                <li><a href="./dom.html">DOM</a></li>
+                <li><a href="./window.html">WINDOW</a></li>
+                <li><a href="./tools.html">DEVELOPER TOOLS</a></li>
+                <li><a href="#">EVENTOS</a></li>
+                <li><a href="./flow.html">FLOW</a></li>
+                <li><a href="./callbacks.html">CALLBACKS</a></li>
+                <li><a href="./peticiones.html">PETICIONES HTTP & JSON</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#eventos">Eventos. Concepto</a></li>
+                <li><a href="#eventoHTML">Agregar eventos en html</a></li>
+                <li><a href="#eventoJS">Agregar eventos en js. Primera forma</a></li>
+                <li><a href="#eventlistener">Agragar eventos en js. Segunda forma(addEventListener)</a></li>
+                <li><a href="#removeEventListener">.removeEventListener()</a></li>
+                <li><a href="#e">Objeto del evento</a></li>
+                <li><a href="#eventFlow">Flujo de eventos o event flow</a></li>
+                <li><a href="stopPropagationev">.stopPropagation()</a></li>
+                <li><a href="#mouse">Eventos Mouse</a></li>
+                <li><a href="#teclado">Eventos Teclado</a></li>
+                <li><a href="#interfaz">Eventos Interfaz</a></li>
+                <li><a href="#timers">Timers</a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="eventos">Eventos</h2>
+            <p>
+                Los eventos se envían para notificar al código de cosas interesantes que han ocurrido. Cada evento está representado por 
+                un objeto que se basa en la interfaz Event, y puede tener campos y/o funciones personalizadas adicionales para obtener más 
+                información acerca de lo sucedido. Los eventos pueden representar cualquier cosa desde las interacciones básicas del usuario
+                para notificaciones automatizadas de las cosas que suceden en el modelo de representación.<br>
+                Los eventos deben ser asociados a un codigo para eso se emplea un <b>handleEvent</b>
+            </p>
+        </article>
+        <article>
+            <h2 id="eventoHTML">onEventHandler</h2>
+            <p> 
+                Se especifica dentro de una etiqueta html como si fuera un atributo, el evento llevara sufijo on y al ser
+                html no será necesario emplear camelCase, entre comillas, como valor, estará establecida la funcion a llamar que será 
+                ejecutada cuando se cumpla el evento. La funcion debe ir con parentesis finales().
+            </p>
+        </article>
+        <article>
+            <h2 id="eventoJS">Events handlers</h2>
+            <p>Capturo el elemento y agrego la propiedad como si fuera un objeto. No es recomendable</p>
+            <p>
+                EJ:<br>
+                let btn = document.querySelector('#input');<br>
+                btn.onclick = () => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;alert('hola');<br>
+                }
+            </p>
+        </article>
+        <article>
+            <h2 id="eventlisteners">Event Listeners</h2>
+            <p>
+                El método addEventlistener, es un escuchador que indica al navegador que este atento a la interacción del usuario.
+                La ventaja es que se escribe totalmente en el JS, sin necesidad de tocar el HTML. Los parametros que recibe son el 
+                evento sin el sufijo on y entre comillas y la funcion sin parentesis finales. La funcion que se pase por parametro 
+                debe ser creada de manera normal con la palabra function. La uúnica forma de usar funciones flecha es adentro del 
+                parametro, de esta manera se estaría definiendo tambien la función al mismo tiempo.
+            </p>
+            <p>
+                EJ:<br>
+                let btn = document.querySelector('#input');<br>
+                btn.addEventListener('click',saludar);<br>
+                function saludar() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;alert('Hola Mundo!');<br>
+                }<br>
+                EJ2:<br>
+                let btn = document.querySelector('#input');<br>
+                btn.addEventListener('click',() => {<br>
+                    alert('Hola Mundo!');<br>
+                });<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="removeEventListener">.removeEventListener()</h2>
+            <p>
+                Remueve un evento de un elemento. Sirve para en casos donde sea necesario que una funcion se ejecute una única vez.
+                Solo funciona con funciones asociadas, es decir con funciones que hayan sido definidas fuera de addEventListener y 
+                del atributo en el caso de que haya sido agregada con html.
+            </p>
+            <p>
+                let btn = document.querySelector('#input');<br>
+                btn.addEventListener('click',saludar);<br>
+                function saludar() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;alert('Hola Mundo!');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;btn.removeEventListener('click',saludar);<br>
+                }<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="e">Objeto del evento</h2>
+            <p> 
+                Para obtener el objeto en el cuál se ejecuto el evento se pasa por parámetro cualquier nombre. Normalmente se usa "e". Y a la
+                propiedad target
+            </p>
+            <p>
+                EJ2:<br>
+                let btn = document.querySelector('#input');<br>
+                btn.addEventListener('click',(e) => {<br>
+                    console.log(e.target);<br>
+                });<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="eventFlow">Flujo de eventos o event flow</h2>
+            <p>
+                Es el orden en el cual serán ejecutados los eventos. Existen dos tipos: <b>Event Bubbling</b> por defecto, y <b>Event
+                Capturing</b>. Event Bubbling ejecuta primero el evento del elemento que esté más abajo del dom mientras que capturing 
+                ejecuta el que este más arriba. Para cambiar a Event Capturing será necesario introducir un tercer parametro en 
+                el event listener con true, false será para Event Bubbling. Si hubiese multiple decendencia con eventos cada una 
+                deberá ser establecida con el parámetro true para que tambien se ejecuten con Capturing.
+            </p>
+            <p>
+                EJ:<br>
+                div = document.getElementById('contenedor');<br>
+                btn = document.getElementById('boton');<br>
+                <br>
+                btn.addEventListener('click',avisar);<br>
+                div.addEventListener('click', alertar, true);<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="stopPropagation">e.stopPropagation()</h2>
+            <p>
+                Detiene la propagación de eventos cuando al hacer click se ejectuan los eventos de varios elementos. No se ejecutan 
+                los demás elementos que están asociados.
+            </p>
+            <p>
+                EJ:<br>
+                 contenedorA = document.getElementById('contenedorAbuelo');<br>
+                contenedorP = document.getElementById('.contenedorPadre');
+                btn = document.getElementById('boton');<br>
+                <br>
+                btn.addEventListener('click',avisar);<br>
+                contenedorP.addEventListener('click', detener);<br>
+                contenedorA.addEventListener('click', alertar);<br>
+                function detener(e) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log('detener');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;e.stopPropagation();<br>
+                }<br>
+                NOTA: No se ejecutará nadie más que el elemento btn.
+            </p>
+        </article>
+        <article>
+            <h2 id="mouse">Eventos Mouse</h2>
+            <h3>click</h3>
+            <p>'click', "onclick", ocurre con un click.</p>
+            <h3>dbclick</h3>
+            <p>'dbclick', "ondbclick" ocurre con dobleclick(en menos de 500ms).</p>
+            <h3>mouseover</h3>
+            <p>
+                'mouseover', "onmouseover" ocurre cuando el puntero entra en contacto con el elemento o uno de sus elementos hijos.
+            </p>
+            <h3>mouseout</h3>
+            <p>'mouseout', "onmouseout" ocurre cuando salgo del elemento o de uno de sus elementos hijos</p>
+            <h3>contextmenu</h3>
+            <p>
+                'contextmenu', "oncontextmenu" ocurre cuando hago click secundario(para abrir el menu del click).
+            </p>
+            <h3>mouseenter</h3>
+            <p>
+                'mouseenter', "onmouseenter" ocurre cuando un puntero se mueve sobre un elemento. (se usa solo para explorer).
+            </p>
+            <h3>mousemove</h3>
+            <p>
+                'mousemove, "onmousemove" ocurre cuando el puntero se mueve mientras está en el elemento.
+            </p>
+            <h3>mouseleave</h3>
+            <p>
+                'mouseleave', "mouseleave" ocurre solo cuando el puntero se mueve fuera del elemento.
+            </p>
+            <h3>mousedown</h3>
+            <p>
+                'mousedown', "onmousedown" ocurre cuando el usuario apreta el click, es decir solo cuando lo presiona no cuando lo suelta.
+            </p>
+            <h3>mouseup</h3>
+            <p>mouseup</p>
+            <p>
+                'mouseup', "onmouseup" ocurre cuando se sulta el click dentro de un elemento.
+            </p>
+        </article>
+        <article>
+            <h2 id="teclado">Eventos Teclado</h2>
+            <p>
+                Por lo general se ejecutan en inputs que permitan la entrada de texto.
+            </p>
+            <h3>keydown</h3>
+            <p>'keydown', "onkeydown" ocurre cuando una tecla se deja de presionar</p>
+            <h3>keypress</h3>
+            <p>'keypress', "onkeypress" ocurre cuando se presiona una tecla y se suelta en un elemento</p>
+            <h3>keyup</h3>
+            <p>'keyup', "onkeyup" ocurre cuando se suelta una tecla en un elemento.</p>
+        </article>
+        <article>
+            <h2 id="interfaz">Eventos Interfaz</h2>
+            <h3>error</h3>
+            <p>
+                'error', "onerror" Ocurre cuando ha sucedido un error en la carga de un archivo multimedia. Ej: No carga una imagen.
+            </p>
+            <h3>load</h3>
+            <p>
+                'load', "onload" Ocurre cuando se carga un elemento.
+            </p>
+            <h3>beforeunload</h3>
+            <p>
+                'beforeunload', "onbeforeunload" Ocurre antes de que el documento este a punto de descargarse. (Cuando te vas)
+            </p>
+            <h3>unload</h3>
+            <p>
+                'unload', "onunload" Ocurre cuando el sitio fue descargado. (Cuando te vas)
+            </p>
+            <h3>resize</h3>
+            <p>
+                'resize', "onresize" Ocurre cuando se cambia la resolucion de la pantalla.
+            </p>
+            <h3>scroll</h3>
+            <p>
+                'scroll', "onscroll" Ocurre cuando se detecta un scroll.
+            </p>
+            <h3>select</h3>
+            <p>
+                'select', "onselect" Ocurre cuando se selecciona un texto.
+            </p>
+        </article>
+        <article>
+            <h2 id="timers">Timers</h2>
+            <h3>setTimeOut()</h3>
+            <p>
+                Establece un temporizador que ejecuta una función o una porción de código después de que transcurre un tiempo establecido.
+                Como primer paráetro recibe la funcion que será ejecutada cada una determinada cantidad de tiempo y como segundo parámetro 
+                la cantidad de tiempo en milisegundos. No es necesario alojarlo en una variable
+            </p>
+            <h3>clearTimeOut()</h3>
+            <p>Detiene la ejecución de setTimeOut()</p>
+            <p>Como párametro recibe el nombre de la variable en donde está alojada la función</p>
+            <h3>setInterval()</h3>
+            <p>
+                Establece un temporizador que ejecuta una función o una porción de código cada vez que transcurre un tiempo establecido.
+                Como primer paráetro recibe la funcion que será ejecutada cada una determinada cantidad de tiempo y como segundo parámetro 
+                la cantidad de tiempo en milisegundos. No es necesario alojarlo en una variable.
+            </p>
+            <h3>clearInval()</h3>
+            <p>Detiene la ejecución de setInterval()</p>
+            <p>Como párametro recibe el nombre de la variable en donde está alojada la función</p>
+        </article>
+        <!-- <form  onsubmit="preventDefault()">
+            <label for="">Nombre completo:</label>
+            <br>
+            <input type="text" id="nombre" required>
+            <br>
+            <label for="">Email:</label>
+            <br>
+            <input type="email" id="email" required>
+            <br>
+            <label for="">Materia:</label>
+            <br>
+            <input type="text" id="materia" required>
+            <br>
+            <input type="submit" id="enviarbtn">
+        </form> -->
+        <!-- <br><br><br>
+        <div class="grid-container">
+        </div>
+        <button class="btnsemana">Guardar Semana</button>
+        <script src="../js/caso82.js"></script> -->
+</body>
+</html>

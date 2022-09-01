@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>JS - Callbacks</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="./poo.html">OBJETOS</a></li>
+                <li><a href="./metodos.html">METODOS</a></li>
+                <li><a href="./console.html">CONSOLA</a></li>
+                <li><a href="./dom.html">DOM</a></li>
+                <li><a href="./window.html">WINDOW</a></li>
+                <li><a href="./tools.html">DEVELOPER TOOLS</a></li>
+                <li><a href="./eventos.html">EVENTOS</a></li>
+                <li><a href="./flow.html">FLOW</a></li>
+                <li><a href="#">CALLBACKS</a></li>
+                <li><a href="./peticiones.html">PETICIONES HTTP & JSON</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#callb">Callback concepto</a></li>
+                <li><a href="#promesas">Promesas</a></li>
+                <li><a href="#await">await & async</a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="callb">Callback</h2>
+            <p>
+                Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la
+                función externa para completar algún tipo de rutina o acción.
+            </p>
+            <p>
+                EJ:<br>
+                <br>
+                function ingresarNombre(callback) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;let nombre = prompt('Ingrese su nombre');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;callback(nombre);<br>
+                }<br>
+                function saludar(usuario) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;alert('HOLA ' + usuario );<br>
+                }<br>
+                ingresarNombre(saludar);<br>
+                <br>
+                EJ2:<br>
+                function ingresarNombre(callback) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;let nombre = prompt('Ingrese su nombre');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;callback(nombre);<br>
+                }<br>
+                ingresarNombre(function saludar(usuario) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;alert('HOLA ' + usuario );<br>
+                });<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="promesas">Promesas (Promise)</h2>
+            <p>
+                Es un objeto que representa la terminación o el fracaso de una operación asíncrona. El objeto Promise recibe 
+                un parámetro compuesto de una función que a su vez aloja dos parámetros con las palabras clave "resolve" y 
+                "reject". Resolve se usará en caso de que el "proceso" haya sido un éxito y "reject" en caso contrario.
+            </p>
+            <p>
+                EJ:<br>
+                let nombre = 'HOLA MUNDO';
+                const promesa = new Promise((resolve,reject)=>{<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if(nombre == 'HOLAMUNDO') resolve(nombre)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;else reject("Lo siento no es HOLAMUNDO");<br>
+                });<br>
+                NOTA: Resolve es "resolver". Y reject es "rechazar".<br>
+            </p>
+            <h3>.then() "después" y .catch() "captura"</h3>
+            <p>
+                .then() Es un método que tienen las promesas pará acceder al contenido de resolve(); Es decir servirá para establecer 
+                los efectos de la promise en caso de resolve(). Mientras que .catch() servirá para establecer los efectos de la promise 
+                en caso de reject();
+            </p>
+            <p>
+                promesa.then((resultado) => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(resultado);<br>
+                }).catch(e) => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(e);<br>
+                }
+            </p>
+        </article>
+        <article>
+            <h2 id="await">await & async</h2>
+            <p>
+                El operador await es usado para esperar a una Promise. Sólo puede ser usado dentro de una función async function.<br>
+                La declaración de función async define una función asíncrona, la cual devuelve un objeto AsyncFunction. el async va antes de 
+                la palabra clave function y en el caso de que sea flecha sería const nombreFuncion =  async () => {}
+            </p>
+            <p>
+                EJ:<br>
+                const objeto = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propiedad1: 'valor1',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propiedad2: 'valor2',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propiedad3: 'valor3'<br>
+                }<br>
+                <br>
+                const obtenerInfo = () => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new Promise((resolve,reject) => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() => {resolve(objeto)},3000)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                }<br>
+                <br>
+                const mostrarResultado = async () => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado = await obtenerInfor();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(resultado);<br>
+                }<br>
+                <br>
+                mostrarResultado();
+            </p>
+            <p>
+                EJ:2<br>
+                const objeto = {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propiedad1: 'valor1',<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propiedad2: 'valor2',<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propiedad3: 'valor3'<br>
+                    }<br>
+                    <br>
+                    const obtenerInfo = () => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new Promise((resolve,reject) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() => {resolve(objeto)},3000)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                    }<br>
+                    <br>
+                    obtenerInfo().then(resultado => console.log(resultado));
+                    <br>
+                    mostrarResultado();
+            </p>
+            <p>
+                <br><br>
+                EJ:3<br>
+                Caso en el que la promesa no sirve devido a que el output se da de manera aleatoria:<br>
+                <br>
+                const obtenerInfo = (text) => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new Promise((resolve,reject) => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() => {resolve(text)},Math.random()*200)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                }<br>
+                <br>
+                obtenerInformacion('1era opcion').then(resultado => console.log(resultado));<br>
+                obtenerInformacion('2da opcion').then(resultado => console.log(resultado));<br>
+                obtenerInformacion('3ra opcion').then(resultado => console.log(resultado));<br>
+                DATA: EN ESTE CASO NO SE EJECUTAN EN ORDEN SINO QUE SE EJECUTAN DE MANERA ALEATORIA LOS 3 EMPEZANDO AL MISMO TIEMPO.
+            </p>
+            <p>
+                con await: <br>
+                const obtenerInfo = (text) => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new Promise((resolve,reject) => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() => {resolve(text)},Math.random()*200)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                }<br>
+                <br>
+                const mostrarData = async () => {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;data1 = await obtenerInfo('1');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;data2 = await obtenerInfo('2');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;data3 = await obtenerInfo('3');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(data1);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(data2);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(data3);<br>
+                }<br>
+                mostrarData();<br>
+                NOTA: El await se ejecuta en orden, hasta que el primer await no se ejecute, no se ejecutara el resto.
+            </p>
+        </article>
+    </section>
+    <script src="../js/caso101.js"></script>
+</body>
+</html>

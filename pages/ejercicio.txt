@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio final - Llaves</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1rem 2rem;
+        }
+        .container__item {
+            border: 1px solid #71a154;
+            margin: 1rem 1rem;
+            padding: 1rem;
+            border-radius: 2%;
+        }
+        .container__item:hover {
+            box-shadow: 0 0 30px #317124;
+            position: relative;
+        }
+
+        .container__item:hover > div {
+            width: 250px;
+        }
+
+        .container__img {
+            width: 250px;
+        }
+        .image {
+            width: 100%;
+        }
+        .enviar {
+            background-color: green;
+            color: white;
+            border: 0;
+            font-size: 2rem;
+            padding: .5rem;
+            display: block;
+            margin: 0 auto 1rem;
+            cursor: pointer;
+        }
+
+        .enviar:active {
+            background-color: #71a154;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+    <input type="hidden" name ="data" class="data">
+    <input type="submit" value="comprar" class="enviar">
+    <script src="../js/ejercicio.js"></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>JS - WINDOW</title>
+    </head>
+    <body>
+        <header>
+            <h1>JS-BASICS</h1>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="../index.html">BASICO</a></li>
+                    <li><a href="./basico2.html">BASICO2</a></li>
+                    <li><a href="./poo.html">OBJETOS</a></li>
+                    <li><a href="./metodos.html">METODOS</a></li>
+                    <li><a href="./console.html">CONSOLA</a></li>
+                    <li><a href="./dom.html">DOM</a></li>
+                    <li><a href="#">WINDOW</a></li>
+                    <li><a href="./tools.html">DEVELOPER TOOLS</a></li>
+                    <li><a href="./eventos.html">EVENTOS</a></li>
+                    <li><a href="./flow.html">FLOW</a></li>
+                    <li><a href="./callbacks.html">CALLBACKS</a></li>
+                    <li><a href="./peticiones.html">PETICIONES HTTP & JSON</a></li>
+                </ul>
+            </nav>
+            <section>
+                <h4>Contenidos</h4>
+                <ul class="page-nav">
+                    <li><a href="#window">Window concepto</a></li>
+                    <p>Metodos y propiedades de windo</p>
+                    <li><a href="#open">window.open()</a></li>
+                    <li><a href="#close">window.close()</a></li>
+                    <li><a href="#closed">window.closed</a></li>
+                    <li><a href="#stop">window.stop()</a></li>
+                    <li><a href="#alert">window.alert()</a></li>
+                    <li><a href="#print">window.print()</a></li>
+                    <li><a href="#prompt">window.prompt()</a></li>
+                    <li><a href="#confirm">window.confirm()</a></li>
+                    <p>screen y scroll</p>
+                    <li><a href="#screen">window.screen</a></li>
+                    <li><a href="#availHeight">screen.availHeight</a></li>
+                    <li><a href="#availWidth">screen.availWidth</a></li>
+                    <li><a href="#screenLeft">window.screenLeft</a></li>
+                    <li><a href="#screenTop">window.screenTop</a></li>
+                    <li><a href="#scrollX">window.scrollX</a></li>
+                    <li><a href="#scrollY">window.scrollY</a></li>
+                    <li><a href="#scroll">window.scroll()</a></li>
+                    <li><a href="#resizeBy">window.resizeBy()</a></li>
+                    <li><a href="#resizeTo">window.resizeTo()</a></li>
+                    <li><a href="#moveBy">window.moveBy()</a></li>
+                    <li><a href="#moveTo">window.moveTo()</a></li>
+                    <p>Objetos barprop</p>
+                    <li><a href="#barprop">Objetos barprop</a></li>
+                    <p>Location</p>
+                    <li><a href="#location">window.location</a></li>
+                    <li><a href="#href">location.href</a></li>
+                    <li><a href="#hostname">location.hostname</a></li>
+                    <li><a href="#pathname">location.pathname</a></li>
+                    <li><a href="#protocol">location.protocol</a></li>
+                    <li><a href="#assign">location.assign()</a></li>
+                </ul>
+            </section>
+        </header>
+        <section>
+            <article>
+                <h2 id="window">Window</h2>
+                <p>
+                    El objeto window representa la ventana que contiene un documento DOM; la propiedad document apunta al DOM document 
+                    cargado en esa ventana. El objeto window al que pertenece un documento puede ser obtenido usando la propiedad 
+                    document.defaultView. Hereda las propiedades de EventTarget.
+                </p>
+            </article>
+            <article>
+                <h2 id="open">window.open()</h2>
+                <p>Abre una ventana nueva</p>
+                <p>
+                    EJ:<br>
+                    window.open('https://google.com');
+                </p>
+            </article>
+            <article>
+                <h2 id="close">.close()</h2>
+                <p>
+                    Cierra una ventana abierta por window.open().
+                </p>
+                <p>
+                    EJ:<br>
+                    let ventana = window.open('https://google.com');<br>
+                    ventana.close();<br>
+                    Nota: La ventana se cerrara, al ejecutarse todo el código abrira e inmediatamente cerrara 
+                    sin que nos percatemos.
+                </p>
+            </article>
+            <article>
+                <h2 id="closed">window.closed</h2>
+                <p>
+                    Retorna true si la ventana referenciada está cerrada.
+                </p>
+                <p>
+                    INPUT: <br>
+                    let ventana = window.open('https://google.com');<br>
+                    ventana.close();<br>
+                    ventana.closed;<br>
+                    OUTPUT:<br>
+                    true
+                </p>
+            </article>
+            <article>
+                <h2 id="stop">window.stop()</h2>
+                <p>
+                    Detiene la carga de recursos en el contexto de la navegación actual. Similar a apretar 
+                    el boton de cruz cuando se está cargado la página.
+                </p>
+                <p>
+                    Ej:<br>
+                    window.stop();
+                </p>
+            </article>
+            <article>
+                <h2 id="alert">window.alert()</h2>
+                <p>Muestra un mensaje de alerta con el contenido especificado y un boton aceptar</p>
+                <p>
+                    EJ:<br>
+                    alert('Bienvenido');
+                </p>
+            </article>
+            <article>
+                <h2 id="print">window.print()</h2>
+                <p>
+                    Abre un cuadro de dialogo para imprimir el documento actual.
+                </p>
+                <p>
+                    EJ:<br>
+                    print();
+                </p>
+            </article>
+            <article>
+                <h2 id="prompt">window.prompt()</h2>
+                <p>
+                    Abre un cuadro de dialogo con un mensaje que solicita al usuario un dato (string).
+                </p>
+                <p>
+                    EJ:<br>
+                    prompt('Ingrese nombre');
+                </p>
+            </article>
+            <article>
+                <h2 id="confirm">window.confirm()</h2>
+                <p>
+                    Abre un mensaje de dialogo con dos botones aceptar y cancelar. Si el usuario apreta aceptar
+                    devuelve true, si elije cancelar, false.
+                </p>
+                <p>
+                    EJ:<br>
+                    confirm('Desea salir?');
+                </p>
+                <p></p>
+            </article>
+            <article>
+                <h2 id="screen">window.screen</h2>
+                <p>
+                    Devuelve una referencia al objeto de pantalla asociado con la ventana. El objeto screen, que implementa la interfaz screen,
+                    es un objeto especial para inspeccionar las propiedades de la pantalla en la que se representa la ventana actual.
+                </p>
+                <p>
+                    EJ:<br>
+                    window.screen<br>
+                </p>
+            </article>
+            <article>
+                <h2 id="availHeight">screen.availHeight</h2>
+                <p>
+                    Especifica la altura de la pantalla, en píxeles, menos las funciones de interfaz de usuario permanentes o 
+                    semipermanentes que son mostradas por el sistema operativo, como la barra de tareas de Windows.
+                </p>
+                <p>
+                    EJ:<br>
+                    console.log(window.screen.availHeight);
+                </p>
+            </article>
+            <article>
+                <h2 id="availWidth">screen.availWidth</h2>
+                <p>
+                    Devuelve la cantidad de espacio horizontal disponible en pixeles para la ventana.
+                </p>
+                <p>
+                    EJ:<br>
+                    console.log(window.screen.availWidth);
+                </p>
+            </article>
+            <article>
+                <h2 id="screenLeft">window.screenLeft</h2>
+                <p>
+                    La propiedad Window.screenLeft de solo lectura devuelve la distancia horizontal, en píxeles CSS, desde el borde 
+                    izquierdo de la ventana gráfica del navegador del usuario hasta el lado izquierdo de la pantalla.
+                    Es decir la distancia entre el borde de la ventana izquierdo al final de la pantalla
+                </p>
+                <p>
+                    EJ:<br>
+                    console.log(window.screenLeft)
+                </p>
+            </article>
+            <article>
+                <h2 id="screenTop">window.screenTop</h2>
+                <p>
+                    La propiedad Window.screenTop de solo lectura devuelve la distancia vertical, en píxeles CSS, desde el borde superior 
+                    de la ventana gráfica del navegador del usuario hasta el lado superior de la pantalla.
+                    Es decir la distancia entre el borde de la ventana superior al final de la pantalla.
+                </p>
+                <p>
+                    EJ:<br>
+                    console.log(window.screenTop)
+                </p>
+            </article>
+            <article>
+                <h2 id="scrollX">window.scrollX</h2>
+                <p>
+                    Devuelve el número de pixeles que el documento se desplaza horizontalmente actualmente
+                </p>
+                <p>
+                    EJ:<br>
+                    console.log(window.scrollX);
+                </p>
+            </article>
+            <article>
+                <h2 id="scrollY"></h2>
+                <p>
+                    Devuelve el número de pixeles que el documento se desplaza verticualmente actualmente
+                </p>
+                <p>
+                    EJ:<br>
+                    console.log(window.scrollY);
+                </p>
+            </article>
+            <article>
+                <h2 id="scroll">window.scroll()</h2>
+                <p>
+                    Desplaza la ventana a un lugar particular en el documento. El primer parámetro es  la coordenada x y el segundo la
+                    coordenada y. Los dos en pixeles. Los valores que recibe son tipo number.<br>
+                    Desplazamiento relativo: scrollBy, scrollByLines, scrollByPages.
+                </p>
+                <p>
+                    EJ:<br>
+                    window.scroll(0,300);
+                </p>
+            </article>
+            <article>
+                <h2 id="minimize">window.minimize()</h2>
+                <p>
+                    Minimiza la ventana. OBSOLETA NO FUNCIONA.
+                </p>
+            </article>
+            <article>
+                <h2 id="resizeBy">window.resizeBy()</h2>
+                <p>
+                    Cambia el tamaño de la ventana actual en una cantidad especifica. El primer parámetro es el ancho y el segundo el alto.
+                    INTERACTUA CON EL SERVIDOR
+                </p>
+            </article>
+            <article>
+                <h2 id="resizeTo">window.resizeTo()</h2>
+                <p>
+                    Cambia el tamaño de la ventana actual en una cantidad especifica relativa. INTERACTUA CON EL SERVIDOR.
+                </p>
+                <p></p>
+            </article>
+            <article>
+                <h2 id="moveTo">window.moveTo()</h2>
+                <p>
+                    Mueve la pantalla. Recibe dos parametros el ancho y alto. INTERACTUA CON EL SERVIDOR.
+                </p>
+            </article>
+            <article>
+                <h2 id="moveToBy">window.moveToBy()</h2>
+                <p>
+                    Mueve la pantalla relativamente. Recibe dos parametros el ancho y alto. INTERACTUA CON EL SERVIDOR.
+                </p>
+                <p></p>
+            </article>
+            <article>
+                <h2 id="barprop">Objetos barprop</h2>
+                <p>
+                    Retorna true si los objetos son visibles:
+                    locationbar, personalbar, scrollbars, statusbar, toolbar.
+                </p>
+                <p>
+                    INPUT:<br>
+                    window.locationbar.visible<br>
+                    OUTPUT:<br>
+                    true
+                </p>
+            </article>
+            <article>
+                <h2 id="#location">window.location</h2>
+                <p>
+                    La propiedad de sólo lectura Window.location retorna un objeto Location con información acerca de la ubicación actual del documento.
+                </p>
+                <p>
+                    INPUT:<br>
+                    let ubicacion = window.location<br>
+                    console.log(ubicacion);<br>
+                    OUTPUT:<br>
+                    Location {ancestorOrigins: DOMStringList, href: 'http://127.0.0.1:5500/pages/window.html#window', origin: '
+                    http://127.0.0.1:5500', protocol: 'http:', host: '127.0.0.1:5500', …}
+                </p>
+            </article>
+            <article>
+                <h2 id="href">location.href</h2>
+                <p>
+                    Refleja donde está localizado el archivo.
+                </p>
+                <p>
+                    INPUT:<br>
+                    let ubicacion = location.href<br>
+                    console.log(ubicacion);<br>
+                    OUTPUT:<br>
+                    'http://127.0.0.1:5500/pages/window.html#window'
+                </p>
+            </article>
+            <article>
+                <h2 id="hostname">location.hostname</h2>
+                <p>
+                    Devuelve el nombre del dominio.
+                </p>
+                <p>
+                    INPUT:<br>
+                    let ubicacion = location.hostname<br>
+                    console.log(ubicacion);<br>
+                    OUTPUT:<br>
+                    '127.0.0.1'
+                </p>
+            </article>
+            <article>
+                <h2 id="pathname">location.pathname</h2>
+                <p>
+                    Devuelve la locacion dentro del dominio.
+                </p>
+                <p>
+                    INPUT:<br>
+                    let ubicacion = location.pathname<br>
+                    console.log(ubicacion);<br>
+                    OUTPUT:<br>
+                    '/pages/window.html'
+                </p>
+            </article>
+            <article>
+                <h2 id="protocol">location.protocol</h2>
+                <p>
+                    Devuelve el protocolo
+                </p>
+                <p>
+                    INPUT:<br>
+                    let ubicacion = location.protocol<br>
+                    console.log(ubicacion);<br>
+                    OUTPUT:<br>
+                    'http:'
+                </p>
+            </article>
+            <article>
+                <h2 id="assign">location.assign()</h2>
+                <p>
+                    Carga un nuevo documento.
+                </p>
+                <p>
+                   location.assign('http://www.google.com');<br>
+                </p>
+            </article>
+        </section>
+        <!-- <script src="../js/Caso72.js"></script> -->
+    </body>
+</html>

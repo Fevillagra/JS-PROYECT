@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>JS - flow</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="./poo.html">OBJETOS</a></li>
+                <li><a href="./metodos.html">METODOS</a></li>
+                <li><a href="./console.html">CONSOLA</a></li>
+                <li><a href="./dom.html">DOM</a></li>
+                <li><a href="./window.html">WINDOW</a></li>
+                <li><a href="./tools.html">DEVELOPER TOOLS</a></li>
+                <li><a href="./eventos.html">EVENTOS</a></li>
+                <li><a href="#">FLOW</a></li>
+                <li><a href="./callbacks.html">CALLBACKS</a></li>
+                <li><a href="./peticiones.html">PETICIONES HTTP & JSON</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#flow">Contro de flujo y manejo de errores</a></li>
+                <li><a href="#switch">switch</a></li>
+                <li><a href="#bloque">Sentencias de bloque</a></li>
+                <li><a href="#flujo">Sentencias de control de flujo</a></li>
+                <li><a href="#excepciones">Sentencias de excepciones</a></li>
+                <li><a href="#errores">Errores</a></li>
+                <li><a href="#try">try... catch</a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="flow">Control de flujo y manejo de errores</h2>
+            <p>
+                JavaScript admite un compacto conjunto de declaraciones, específicamente declaraciones de control de flujo, 
+                que puedes utilizar para incorporar una gran cantidad de interactividad en tu aplicación. Este capítulo proporciona 
+                una descripción de estas declaraciones.
+            </p>
+        </article>
+        <article>
+            <h2 id="switch">switch</h2>
+            <p>
+                La declaración switch evalúa una expresión, comparando el valor de esa expresión con una instancia case, y 
+                ejecuta declaraciones asociadas a ese case, así como las declaraciones en los case que siguen.
+            </p>
+            <p>
+                let expr = "manzana"<br>
+                switch(expr){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;case "banana":<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Es banana');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;case "manzana":<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Es manzana');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;default:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log('No es ninguna');
+                }
+            </p>
+        </article>
+        <article>
+            <h2 id="bloque">Sentencias de bloque</h2>
+            <p>
+                La declaración más básica es una declaración de bloque, que se utiliza para agrupar instrucciones. El bloque está 
+                delimitado por un par de llaves.
+            </p>
+            <p>
+                EJ:<br>
+                let name = 'x';<br>
+                {<br>
+                let name = "Mark";<br>
+                }<br>
+                console.log(name);<br>
+                OUTPUT:<br>
+                'x'
+            </p>
+        </article>
+        <article>
+            <h2 id="control">Sentencias de control de flujo</h2>
+            <p>
+                Son todas aquellas que están relacionadas con una funcionalidad de Js, if, else.. if, for, while, do.. while y switch.
+                Son sentencias que controlan el flujo.
+            </p>
+            <p></p>
+        </article>
+        <article>
+            <h2 id="excepciones">Sentencias de excepciones</h2>
+            <p>
+                Puedes lanzar excepciones usando la instrucción throw y manejarlas usando las declaraciones try...catch.
+            </p>
+        </article>
+        <article>
+            <h2 id="errores">Excepciones y tipos</h2>
+            <p>
+                Una expecion es una notificacion al desarrollador de algun tipo de error.
+                Tipos de errores:
+            </p>
+            <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Error">
+                ERRORES
+            </a>
+        </article>
+        <article>
+            <h2 id="try">try... catch</h2>
+            <p>
+                La declaración try...catch marca un bloque de expresiones para probar y especifica una o más respuestas en caso de que 
+                se produzca una excepción. Si se lanza una excepción, la declaración try...catch la detecta.<br>
+                La declaración try...catch consta de un bloque try, que contiene una o más declaraciones, y un bloque catch, 
+                que contiene declaraciones que especifican qué hacer si se lanza una excepción en el bloque try.<br>
+                En otras palabras, deseas que el bloque try tenga éxito, pero si no es así, deseas que el control pase al bloque catch. 
+                Si alguna instrucción dentro del bloque try (o en una función llamada desde dentro del bloque try) arroja una excepción, 
+                el control inmediatamente cambia al bloque catch. Si no se lanza ninguna excepción en el bloque try, se omite el bloque catch. 
+                El bloque finalmente se ejecuta después de que se ejecutan los bloques try y catch, pero antes de las declaraciones que siguen 
+                a la declaración try...catch.
+            </p>
+            <p>
+                EJ:<br>
+                try {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;something<br>
+                }<br>
+                catch(error) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(typeof error);<br>
+                }<br>
+                NOTA: El error es pasado por parámetro y será mostrado el tipo de dato del error. Los errores que controlan try y catch 
+                son todos menos los errores de sintaxis.
+            </p>
+            <h3>finally</h3>
+            <p>
+                Se ejecuta aunque no haya errores en el try.
+            </p>
+            <p>
+                EJ:<br>
+                try {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;something<br>
+                }<br>
+                catch(error) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(typeof error);<br>
+                } finally {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log('No hay errores')
+                }<br>
+                Nota: El finally tiene mayor prioridad que el try y el catch, en caso de returns retornara siempre el valor finally.
+            </p>
+        </article>
+        <article>
+            <h2 id="throw">throw</h2>
+            <p>
+                El throw lanza una excepcion.
+            </p>
+            <p>
+                EJ:<br>
+                try {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;something<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;throw {
+                    a: 'nombreError',
+                    b: 'infoDelError'
+                }
+                }<br>
+                catch(error) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(typeof error);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(error.a);<br>
+                }<br>
+                NOTA: Mostrará un error por consola. Puede ser usado adentro o afuera del try.
+            </p>
+        </article>
+    </section>
+<!-- 
+    <br><br><br>
+    <div>
+        <label for="nota" sty>Ingrese la nota:</label>
+        <input type="number" id="nota" min="1" max="10">
+        <br>
+        <input type="button" value="enviar" id="btnEnviar">
+    </div>
+    <script src="../js/caso91.js"></script> -->
+</body>
+</html>

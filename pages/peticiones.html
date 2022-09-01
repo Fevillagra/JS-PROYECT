@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ES">
+<body>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>JS - PETICIONES HTTP & JSON</title>
+</body>
+<head>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="./poo.html">OBJETOS</a></li>
+                <li><a href="./metodos.html">METODOS</a></li>
+                <li><a href="./console.html">CONSOLA</a></li>
+                <li><a href="./dom.html">DOM</a></li>
+                <li><a href="./window.html">WINDOW</a></li>
+                <li><a href="./tools.html">DEVELOPER TOOLS</a></li>
+                <li><a href="./eventos.html">EVENTOS</a></li>
+                <li><a href="./flow.html">FLOW</a></li>
+                <li><a href="./callbacks.html">CALLBACKS</a></li>
+                <li><a href="#">PETICIONES HTTP & JSON</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#htt">Metodos de petición http</a></li>
+                <li><a href="#json">JSON</a></li>
+                <li><a href="#ajax">AJAX</a></li>
+                <li><a href="#fetch">FETCH</a></li>
+                <li><a href="#axios">AXIOS</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="htt">Metodos de petición http</h2>
+            <p>
+                HTTP define un conjunto de métodos de petición para indicar la acción que se desea realizar para un recurso determinado.
+                Aunque estos también pueden ser sustantivos, estos métodos de solicitud a veces son llamados HTTP verbs. Cada uno de ellos 
+                implementan una semántica diferente, pero algunas características similares son compartidas por un grupo de ellos.
+                Se realiza una petición a un servidor, y el servidor nos da una respuesta.<br>
+                <b>Cliente:</b> Es aquel que solicita la información(Navegador)[interfaz front-end].<br>
+                <b>Servidor:</b> Es aquel que guarda la información.<br>
+                Las peticiones http no guardan información.<br>
+                El formato JSON puede ser usado en js.
+            </p>
+        </article>
+        <article>
+            <h2 id="json">JSON</h2>
+            <p>
+                JSON son las siglas de JavaScript Object Notation, y no es más que un formato ligero de datos, con una estructura (notación)
+                específica, que es totalmente compatible de forma nativa con Javascript. Como su propio nombre indica, JSON se basa en la
+                sintaxis que tiene Javascript para crear objetos.<br>
+                A diferencia de js, json define el nombre de sus variables con comillas.<br>
+                Los textos  deben estar entrecomillados con «comillas dobles».
+            </p>
+            <p>
+                EJ:<br>
+                objeto = {<br>
+                    "variable1" : "VALOR1",<br>
+                    "variable2" : "VALOR2"<br>
+                }
+            </p>
+            <h3>Serialización</h3>
+            <p>
+                Serializar es transformar un objeto tipo json a tipo string. Se dice que está serializado. Y deserializar es transformar 
+                una string a json. Para enviar un json se debe serializar. Cuando se recibe, se recibe en formato string(serializado).<br>
+                Para serializar un json se usa el metodo <b>.stringify()</b> el objeto original seguirá manteniendo
+                su formato original pero si lo guardo en una constante, la nueva variable si adoptara el valor string.<br>
+                Para desserializar un string se usa el metodo <b>.parse()</b> la variable original seguirá manteniendo
+                su formato original pero si lo guardo en una constante, la nueva variable si adoptara el valor json.x
+            </p>
+            <p>
+                EJ (formato serializado):<br>
+                objeto = '{"vairable1" : "VALOR1", "variable2" : "VALOR2"}'<br><br>
+            </p>
+            <p>
+                EJ2 (serializar para enviar):
+                const deserializado = {"vairable1" : "VALOR1", "variable2" : "VALOR2"}<br><br>
+                const serializado = JSON.stringify(deserializado);<br>
+                NOTA: AHORA SERIALIZADO ES TIPO STRING<br>
+            </p>
+            <p>
+                EJ3 (deserializar recibido):<br>
+                const serializado = '{"vairable1" : "VALOR1", "variable2" : "VALOR2"}'<br><br>
+                const deserializado = JSON.parse(serializado);<br>
+                NOTA: AHORA DESERIALIZADO ES TIPO JSON.<br>
+            </p>
+            <h3>polyfill</h3>
+            <p>
+                El objeto JSON no es soportado por navegadores antiguos. Se puede solucionar esto insertando el siguiente código al 
+                inicio del script, permitiendo usar el objeto JSON en navegadores que no soportan su implementación de forma nativa 
+                (por ejemplo en Internet Explorer 6).
+            </p>
+            <p>
+                if (!window.JSON) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;window.JSON = {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parse: function (sJSON) { return eval("(" + sJSON + ")"); },<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stringify: function (vContent) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (vContent instanceof Object) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var sOutput = "";<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (vContent.constructor === Array) {
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var nId = 0; nId < vContent.length; sOutput += this.stringify(vContent[nId]) + ",", nId++);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "[" + sOutput.substr(0, sOutput.length - 1) + "]";<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (vContent.toString !== Object.prototype.toString) {
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "\"" + vContent.toString().replace(/"/g, "\\$&") + "\"";<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var sProp in vContent) {<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sOutput += "\"" + sProp.replace(/"/g, "\\$&") + "\":" + this.stringify(vContent[sProp]) + ",";<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "{" + sOutput.substr(0, sOutput.length - 1) + "}";<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return typeof vContent === "string" ? "\"" + vContent.replace(/"/g, "\\$&") + "\"" : String(vContent);<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+            </p>
+        </article>
+        <article>
+            <h2 id="ajax">AJAX</h2>
+            <p>
+                Con el tiempo, aparece una nueva modalidad de realizar peticiones, denominada AJAX (Asynchronous Javascript and XML). 
+                Esta modalidad se basa en que la petición HTTP se realiza desde Javascript, de forma transparente al usuario, descargando
+                la información y pudiendo tratarla sin necesidad de mostrarla directamente en la página.<br>
+                Cada vez que se realizaba una peticion http, la página se actualiza cuando recibe la respuestadel sevidor. Con AJAX 
+                se realiza el envio, no se actualiza, sino que se ejecuta en paralelo sin afectar necesariamente la ventana actual.
+                Es decir realiza peticiones y se recibe la data sin actualizar la página.
+            </p>
+            <h3>XMLHttpRequest</h3>
+            <p>
+                Es un objeto javascript, proporciona una forma fácil de obtener información de una URL sin tener que recargar la página 
+                completa. Una página web puede actualizar sólo una parte de la página sin interrumpir lo que el usuario está haciendo. 
+                XMLHttpRequest es ampliamente usado en la programación AJAX.
+            </p>
+            <p>PROTOCOLO ANTERIOR</p>
+            <p>
+                EJ:<br>
+                const peticion = new XMLHttpRequest();<br>
+                <br>
+                peticion.addEventListener('readystatechallenge', () => { NOTA: PODEMOS VER EL ESTADO DE LA PETICION. CAMBIA 4 veces<br>
+                    console.log(peticion.readyState); NOTA: EL OUTPUT SERAN 4 y seran 1,2,3 y 4. NOTA: 1(La solicitud se creo correctamente) 2(la solicitud se envió correctamente) 3(Se está procesando la petición) 4(la respuesta llego y se puede usar).<br> 
+                })<br><br>
+                
+                peticion.open('GET',"informacion.txt"); NOTA: ENVIO UNA SOLICITUD, EL PRIMER PARAMETRO PUEDE SER GET O POST Y EL SEGUNDO ES EL NOMBRE DEL ARCHIVO.<br>
+                peticion.send(); NOTA: EL CODIGO DE RESPUESTA DEBE SER 3 Y EL ESTATUS DEBE ESTAR EN 200.<br>
+            </p>
+            <p>
+                EJ2:<br>
+                const peticion = new XMLHttpRequest();<br>
+                <br>
+                peticion.addEventListener('readystatechallenge', () => {<br>
+                    if (peticion.readyState == 4 && peticion.status == 200) { NOTA: HAGO UNA VALIDACION PARA VER SI ESTÄ LISTO PARA USAR.
+                        console.log(peticion.response); NOTA: SI LA PETICION DA 200 ESTA BIEN. 
+                    }  
+                })<br><br>
+                peticion.open('GET','informacion.txt');<br>
+                <br>
+                peticion.send();
+            </p>
+            <p>PROTOCOLO ACTUAL</p>
+            <p>
+                EJ2:<br>
+                const peticion = new XMLHttpRequest();<br>
+                <br>
+                peticion.addEventListener('load', () => {<br>
+                    let respuesta;<br>
+                    if (peticion.status == 200) respuesta = peticion.responce;<br>
+                    else respuesta = 'No se ha encontrado el recurso'<br>
+                    console.log(respuesta);<br>
+                    } <br>
+                })<br><br>
+                peticion.open('GET','informacion.txt');<br>
+                <br>
+                peticion.send();
+            </p>
+            <h3>Objeto ActivexObject</h3>
+            <p>Se usa en caso de que se este usando un navegador que no soporte AJAX</p>
+            <p>
+                EJ3:<br>
+                let peticion;
+                if(window.XMLHttpRequest) {
+                    peticion = new XMLHttpRequest(); 
+                } else {
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                <br>
+                peticion.addEventListener('load', () => {<br>
+                    let respuesta;<br>
+                    if (peticion.status == 200) respuesta = peticion.responce;<br>
+                    else respuesta = 'No se ha encontrado el recurso'<br>
+                    console.log(JSON.parse(respuesta));<br>
+                    } <br>
+                })<br><br>
+                peticion.open('GET','informacion.txt');<br>
+                <br>
+                peticion.send();
+            </p>
+            <h3>METODOS GET & POST</h3>
+            <p>
+                let peticion;
+                if(window.XMLHttpRequest) {
+                    peticion = new XMLHttpRequest(); 
+                } else {
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                <br>
+                peticion.addEventListener('load', () => {<br>
+                    let respuesta;<br>
+                    if (peticion.status == 200) respuesta = peticion.responce;<br>
+                    else respuesta = 'No se ha encontrado el recurso'<br>
+                    console.log(JSON.parse(respuesta));<br>
+                    } <br>
+                })<br><br>
+                peticion.open('POST','https://reqres.in/api/users');<br>
+                <br>
+                peticion.sendRequestHeader('Content-type:', 'application/json;charset=UTF8')<br>
+                peticion.send(JSON.stringify({<br>
+                    "nombre": "morfeo",<br>
+                    "trabajo": "lider"<br>
+                }));
+            </p>
+        </article>
+        <article>
+            <h2 id="fetch">fetch</h2>
+            <p>
+                La API Fetch proporciona una interfaz JavaScript para acceder y manipular partes del canal HTTP, tales como peticiones 
+                y respuestas. También provee un método global fetch() (en-US) que proporciona una forma fácil y lógica de obtener recursos 
+                de forma asíncrona por la red.<br>
+                Este tipo de funcionalidad se conseguía previamente haciendo uso de XMLHttpRequest. Fetch proporciona una alternativa mejor
+                que puede ser empleada fácilmente por otras tecnologías como Service Workers (en-US). Fetch también aporta un único lugar
+                lógico en el que definir otros conceptos relacionados con HTTP como CORS y extensiones para HTTP.<br>
+                Cuando trabajamos con fetch siempre nos devuelve una promesa encapsulada(porque no podemos entrar a los datos).<br>
+                Se emplean diferentes metodos para convertir el resultado en un tipo de dato valido.
+                Fetch usa el metodo get por defecto a menos que sea definido.
+            </p>
+            <p>
+                EJ:<br>
+                let peticion = fetch('https://reqres.in/api/unknown/2'); <br><br>
+                NOTA: Esto es equivalente a las siguientes lineas de codigo en AJAX:<br>
+                let peticion;<br>
+                if(window.XMLHttpRequest) {<br>
+                    peticion = new XMLHttpRequest(); <br>
+                } else {
+                    peticion = new ActiveXObject("Microsoft.XMLHTTP");<br>
+                }<br>
+                <br>
+                peticion.open('POST','https://reqres.in/api/users');
+            </p>
+            <h3>Validando estado</h3>
+            <p>
+                Los datos están encapsulados y para entrar se usan los siguientes metodos .text() .json() .blob() .formData() .arrayBuffer(). 
+            </p>
+            <p>
+                EJ:<br>
+                let peticion = fetch('https://reqres.in/api/unknown/2'); <br>
+                peticion <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;then(res => res.text());<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;then(res => console.log(res)); 
+                NOTA: PARA DESENCAPSULAR SE DEBERAN USAR LOS METODOS EN "RES" PARA QUE LOS DATOS SEAN DEVUELTOS EN ALGUN FORMATO.
+            </p>
+            <p>
+                EJ2 SIMPLIFICADO:
+                let peticion = fetch('https://reqres.in/api/unknown/2'); <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;then(res => res.text());<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;then(res => console.log(res));<br>
+            </p>
+            <p>
+                CONVERTIR A JSON:<br>
+                let peticion = fetch('https://reqres.in/api/unknown/2'); <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;then(res => res.text());<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;then(res => console.log(JSON.parse(res)));<br>
+            </p>
+            <p>
+                EJ2: <br>
+                let peticion = fetch('https://reqres.in/api/unknown/2'); <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;then(res => res.json());<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;then(res => console.log(JSON.parse(res)));<br>
+            </p>
+            <h3>Parámetros</h3>
+            <p>
+                El segundo párametro es un objeto, cuya primera propiedad es la propiedad que define el metodo a utilizar, mientras 
+                que el segundo es el elemento al cuál le pasaremos otro objeto, la tercera propiedad son los headers.
+            </p>
+            <p>
+                fetch("https://reqres.in/api/users",{<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;body: JSON.stringify({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"nombre" : "DIOGENES",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"apellido" : "ELPERRO"<br>    
+                &nbsp;&nbsp;&nbsp;&nbsp;}),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;headers: {"Content-type" : "application/json"}<br>
+                })<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;.then(res=>res.json());<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;.then(res=>console.log(res));<br>
+
+            </p>
+            <h3>Pasar imagen</h3>
+            <p>Para enviar una images se usa .blob()</p>
+            <p>
+                EJ:<br>
+                const imagen = document.querySelector(".img");<br>
+                <br>
+                fetch("diferencia.png")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;.then(res=>res.blob());<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;.then(img=>imagen.src = URL.createObjectURL(img));
+            </p>
+        </article>
+        <article>
+            <h2 id="axios">AXIOS</h2>
+            <p>
+                
+            </p>
+        </article>
+    </section>
+</head>
+</html>

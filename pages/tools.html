@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>JS - Developer tools</title>
+</head>
+<body>
+    <header>
+        <h1>JS-BASICS</h1>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="../index.html">BASICO</a></li>
+                <li><a href="./basico2.html">BASICO2</a></li>
+                <li><a href="./poo.html">OBJETOS</a></li>
+                <li><a href="./metodos.html">METODOS</a></li>
+                <li><a href="./console.html">CONSOLA</a></li>
+                <li><a href="./dom.html">DOM</a></li>
+                <li><a href="./window.html">WINDOW</a></li>
+                <li><a href="#">DEVELOPER TOOLS</a></li>
+                <li><a href="./eventos.html">EVENTOS</a></li>
+                <li><a href="./flow.html">FLOW</a></li>
+                <li><a href="./callbacks.html">CALLBACKS</a></li>
+                <li><a href="./peticiones.html">PETICIONES HTTP & JSON</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h4>Contenidos</h4>
+            <ul class="page-nav">
+                <li><a href="#tools">Herramientas para desarrolladores. Concepto</a></li>
+                <li><a href="#elements">Pestaña ELEMENTS</a></li>
+                <li><a href="#resources">Pestaña RESOURCES</a></li>
+                <li><a href="#networks">Pestaña NETWORK</a></li>
+                <li><a href="#performance">Pestaña PERFORMANCE</a></li>
+                <li><a href="#aplication">Pestaña APLICATION</a></li>
+                <li><a href="#console">Pestaña CONSOLE</a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <article>
+            <h2 id="tools">Herramientas para desarrolladores</h2>
+            <p>
+                Es un conjunto de herramientas para desarrolladores web integradas directamente en el navegador.
+                Cuenta con un menu para elegir como será mostrada la consola, la opcion de vista mobile y un selector de elementos. En la 
+                ventana de vista mobile en el menu superior derecho hay una opcion para ver <b>mediaQuerys</b>. Se pueden tomar 
+                screenshots. ctrl + shift + p Accede al panel menu de screenshoots.
+            </p>
+            <p>Para seleccionar un elemento en especifico se le da click al elemento seguido de inspeccionar. Para entrar a la consola f12</p>
+        </article>
+        <article>
+            <h2 id="elements">Pestaña ELEMENTS o elementos</h2>
+            <p>
+                La pestaña elements muestra el codigo html en la parte superior. 
+            </p>
+            <h3>Click secundario</h3>
+            <p>
+                COPY: Con click secundario se copiar y cortar el elemento, outerHTML
+                selector, estilos, xpad(alojamiento), fullxpad(alojamiento + informacion),
+            </p>
+            <p>
+                Force state: Fuerza una pseudoclase a un elemento que no tiene la pseudoclase activa en ese momento.
+                En la ventana secundaria de estilos a la derecha del cuadro de "filtrar" tambien se podrá selectionar opciones de 
+                force state.
+            </p>
+            <p>
+                Se puede crear eliminar y modificar etiquetas.
+                Con ctrl f puedo encontrar palabras clave dentro de elements.
+            </p>
+            <h3>Pestaña secundaria styles</h3>
+            <p>
+                En esta pestaña se pueden ver y modificar los estilos del elemento seleccionado.
+                Puedo usar en cualquier elemento que tenga color el gotero para elegir exactamente el color de la página que estoy 
+                buscando.<br>
+                A la derecha aparece el archivo del estilo y la linea del selector en el archivo css.
+            </p>
+            <h3>Pestaña secundaria Computed/Calculados</h3>
+            <p>
+                Permite ver y modificar el box model del elemento. Debajo apareceran las propiedades con sus valores, darle click nos lleva 
+                a styles.
+            </p>
+            <h3>Pestaña secundaria EventListeners</h3>
+            <p>Muestra los eventos del elemento</p>
+            <h3>Pestaña secundaria Dom breackpoints</h3>
+            <p></p>
+            <h3>Pestaña secundaria Propertys</h3>
+            <p>Pestaña obsoleta, debe usarse console.dir($0); muestra todas las propiedades del elemento.</p>
+            <h3>Pestaña secundaria accesibilidad</h3>
+            <p></p>
+        </article>
+        <article>
+            <h2 id="resources">Pestaña RESOURCES o fuentes</h2>
+            <p>
+                Permite trabajar directamente con los archivos que están adentro. (archivos de la página). Puedo modificar los archivos y 
+                guardar los cambios con cntrl + s. Modifica los archivos en tiempo real. En el menu izquierdo hay la opcion de open file 
+                para trabajar con cualquier archivo.
+            </p>
+            <h3>Pestaña secundaria snippets o fragmentos</h3>
+            <p>
+                Son fragmentos de codigo que puedo guardar en el navegador para modificar el codigo con posterioridad al igual con la 
+                consola con la diferencia de que no se borrara si este es guardado. Si recargo la página, para activar el snippet será 
+                necesario seleccionarlo e introducir ctrl +
+            </p>
+        </article>
+        <article>
+            <h2 id="networks">Pestaña NETWORK o red</h2>
+            <p>
+                Es una pestaña que muestra en la parte inferior los archivos y nos permite agregar opciones. Muestra el initiator que es el 
+                archivo que lo inicializa, el tipo de documento, estado, el tamaño, el tiempo que tardo en cargar y el waterfall que muestra
+                la linea en donde se inicializo.<br>
+                El cuadro el centro muestra en que segundo empezo a cargar el archivo y en que segundo termino.<br>
+                En la parte inferior muestra cuanto tiempo tardo en cargarse toda la pagina. Las transferencias, las solicitudes, el tamaño 
+                de los archivos totales el tiempo finalizado y el tiempo del dom cargando.<br>
+                Puedo darle click secundario y bloquear url request para que no cargue luego de actualizar la pagina. Se puede tambien 
+                bloquear el dominio entero. Para borrar el cache tambien es con click secundario. Tambien se pueden borrar las cookies.
+            </p>
+            <h3>Shortby</h3>
+            <p>Diferentes formas de ordenar.</p>
+            <h3>Sortby</h3>
+            <p>Agregar pestañas con datos extra.</p>
+            <h3>Pestaña superior</h3>
+            <p>Puedo seleccionar el tipo de archivo mostrado y esconder la informacion de los urls.</p>
+        </article>
+        <article>
+            <h2 id="performance">Pestaña PERFORMANCE</h2>
+            <p>Muestra los recursos consumidos por la página</p>
+            <p>ctrl shift p performance Muestra el consumo.</p>
+            <h3>Pestañas secundarias</h3>
+            <p>Console, tiene una consola que funciona igual que la consola principal</p>
+            <p>Whats new muestra las actualizaciones y novedades</p>
+            <p>Search me permite buscar en los archivos</p>
+            <p>Y performance monitor que me permite observar el monitor y sus recursos consumidos</p>
+            <p>La opcion grabar permite capturar el consumo desde ahora, mientras que la otra graba desde que la pagina carga.</p>
+            <p>Puedo grabar los frames del video como un json.</p>
+        </article>
+        <article>
+            <h2 id="aplication">Pestaña APLICATION</h2>
+            <p> Almacenamiento local, tiene sql?, cookies, imagenes usadas.</p>
+            <p></p>
+        </article>
+        <article>
+            <h2 id="console">Pestaña console</h2>
+            <p>Ejecuta codigo. En la parte superior central puedo filtrar informacion.</p>
+            <p></p>
+        </article>
+    </section>
+</body>
+</html>
